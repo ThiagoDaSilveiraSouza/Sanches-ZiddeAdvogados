@@ -1,5 +1,5 @@
 # Sanches-ZiddeAdvogados
 
 ## To-do
-[] install React
-[] Create routes
+[ ] install React
+[ ] Create routes
