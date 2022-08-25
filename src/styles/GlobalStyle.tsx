@@ -4,6 +4,8 @@ export const GlobalStyle = createGlobalStyle`
   :root{
     --dark-color: #191919;
     --gold-color: rgb(163 131 52);
+    --gray-color: #e8e8e8;
+    --gray-color-2: rgb(232 232 232);
   }
   body {
     margin: 0;
