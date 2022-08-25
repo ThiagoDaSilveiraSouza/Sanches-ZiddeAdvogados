@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 // interface
-import { IConfigDefault } from "./interface";
+import { IButton } from "./interface";
 
-export const Button = styled.button<IConfigDefault>`
+export const Button = styled.button<IButton>`
   padding: 10px;
   border: ${({ borderColor }) => borderColor || "2px solid var(--gold-color)"};
   background: ${({ backgroundColor }) => backgroundColor || "transparent"};
