@@ -13,7 +13,7 @@ import {
 
 const ModalDefaultConfigs: IModalDefaultConfigs = {
   cardPadding: "18px",
-  cardPosition: "left",
+  cardPosition: "center",
 };
 
 export const Modal: FC<IModal> = ({
