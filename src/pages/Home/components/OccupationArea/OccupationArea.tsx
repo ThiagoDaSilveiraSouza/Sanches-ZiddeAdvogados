@@ -1,15 +1,27 @@
 // data
-import { useState } from "react";
+import { FC, useState } from "react";
 import { Modal } from "../../../../components";
 import { cardList } from "./data";
 
-// style
-import { OccupationAreaContent, CardContainer } from "./style";
+// interface
+import { IOcupationAreaConfig } from "./interface";
 
 // components
 import { Card, ModalContent } from "./components";
 
-export const OccupationArea = () => {
+// style
+import { OccupationAreaContent, CardContainer } from "./style";
+
+const defaultConfig: IOcupationAreaConfig = {
+  backgroundImg: "",
+};
+
+interface IOcupationArea {
+  config: IOcupationAreaConfig;
+}
+export const OccupationArea: FC<IOcupationArea> = ({
+  config = defaultConfig,
+}) => {
   const [cardSelectedIndex, setCardSelectedIndex] = useState(0);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -20,7 +32,7 @@ export const OccupationArea = () => {
 
   return (
     <>
-      <OccupationAreaContent>
+      <OccupationAreaContent {...config}>
         <h2>Áreas de atuação</h2>
         <CardContainer>
           {cardList.map((card, index) => (
