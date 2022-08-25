@@ -1,9 +1,16 @@
+// img
+import firstLogo from "../../public/logo.jpeg";
+
 export const companyData = {
   name: "Sanches & Zidde advogados",
-  phone: "",
+  phone: "(21) 99999-9999",
   address: "",
   number: "",
   email: "",
+  logo: {
+    first: firstLogo,
+    second: "",
+  },
   socialMedia: {
     facebook: "",
     instagram: "",
