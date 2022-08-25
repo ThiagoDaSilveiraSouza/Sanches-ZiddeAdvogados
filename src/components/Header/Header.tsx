@@ -28,7 +28,7 @@ export const Header = () => {
       <ShadowHeader {...headerConfig} />
       <HeaderContainer {...headerConfig}>
         <div className="centralizer">
-          <LogoContainer {...headerConfig} />
+          <LogoContainer href="/" {...headerConfig} />
           <Nav>
             <a href="/">Quem somos</a>
             <a href="/">Areas de atuação</a>
