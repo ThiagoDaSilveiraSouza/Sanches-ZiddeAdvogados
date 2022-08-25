@@ -31,7 +31,7 @@ export const HeaderContainer = styled.header<IHeaderConfig>`
   }
 `;
 
-export const LogoContainer = styled.div<IHeaderConfig>`
+export const LogoContainer = styled.a<IHeaderConfig>`
   height: 50px;
   width: 120px;
   border: ${({ logoUrl }) => !logoUrl && "3px solid white"};
@@ -54,6 +54,8 @@ export const Nav = styled.nav`
   a {
     color: white;
     text-decoration: none;
+		text-transform: uppercase;
+		font-size: 14px;
   }
 `;
 
