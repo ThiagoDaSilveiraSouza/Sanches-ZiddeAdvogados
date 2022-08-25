@@ -9,7 +9,7 @@ interface IModalContainerStatus {
 }
 
 export const ModalContainer = styled.section<IModalContainerStatus>`
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
