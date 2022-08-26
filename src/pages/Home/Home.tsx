@@ -2,15 +2,15 @@
 import { Header } from "../../components";
 
 // Home components
-import { OccupationArea } from "./components";
+import { OccupationArea, MainBanner, WhoWheAre } from "./components";
 
-import { MainBanner } from "./components";
-
+import{} from "./components"
 export const Home = () => {
   return (
     <div>
       <Header />
       <MainBanner/>
+      <WhoWheAre/>
       <OccupationArea />
     </div>
   );
