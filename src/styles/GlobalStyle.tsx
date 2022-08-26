@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     --dark-color: #191919;
     --gold-color: #A38334;
     --gray-color: #E8E8E8;
-    --gray-color-2: rgb(232 232 232);
+    --gray-color-2: #707070;
 
 
   }

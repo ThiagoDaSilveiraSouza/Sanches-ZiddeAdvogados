@@ -15,7 +15,7 @@ export const ModalContainer = styled.section<IModalContainerStatus>`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   visibility: ${({ modalIsOpen }) => (modalIsOpen ? "visible" : "hidden")};
   animation-delay: 0.5s;
 `;
@@ -36,9 +36,7 @@ export const ModalCard = styled.div<IModalContainerStatus>`
   padding: ${({ cardPadding }) => cardPadding ?? cardPadding};
   width: 90vw;
   max-width: 500px;
-  height: ${({ cardPosition }) => cardPosition !== "center" && "100vh"};
-  max-height: ${({ cardPosition }) =>
-    cardPosition !== "center" ? "unset" : "400px"};
+  max-height: 100vh;
   box-sizing: border-box;
   box-shadow: 0 0 3px 0 gray;
   transform: ${({ modalIsOpen, cardPosition }) => {
@@ -63,31 +61,28 @@ export const ModalCard = styled.div<IModalContainerStatus>`
 
 export const ModalCardCloseButton = styled.div<IModalContainerStatus>`
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 15px;
+  right: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15px;
-  height: 15px;
+  width: 29px;
+  height: 29px;
+  border: 1px solid var(--gray-color-2);
 
   cursor: pointer;
 
   :hover {
-    transform: scale(1.2);
-    ::before,
-    ::after {
-      background: red;
-    }
+    box-shadow: 0 0 3px 0 var(--gray-color-2);
   }
 
   ::before,
   ::after {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 3px;
-    background: black;
+    width: 75%;
+    height: 2px;
+    background: var(--gray-color-2);
   }
   ::before {
     transform: rotate(45deg);

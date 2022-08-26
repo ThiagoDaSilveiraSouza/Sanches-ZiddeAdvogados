@@ -12,7 +12,7 @@ import {
 } from "./style";
 
 const ModalDefaultConfigs: IModalDefaultConfigs = {
-  cardPadding: "18px",
+  cardPadding: "clamp(15px, 10%, 40px)",
   cardPosition: "center",
 };
 

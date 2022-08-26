@@ -21,10 +21,22 @@ export const ModalContentStyle = styled.div<ICard>`
     img {
       display: ${({ icon }) => !icon && "none"};
     }
+    h3 {
+      font-family: var(--secondary-font);
+      font-size: 28px;
+      line-height: 22px;
+    }
   }
   ul {
-    font-size: 12px;
+    font-size: 16px;
     padding: 0;
     list-style-position: inside;
+    li {
+      line-height: 28px;
+      span {
+        position: relative;
+        left: -12px;
+      }
+    }
   }
 `;
