@@ -32,14 +32,14 @@ export const HeaderContainer = styled.header<IHeaderConfig>`
 `;
 
 export const LogoContainer = styled.a<IHeaderConfig>`
-  height: 50px;
-  width: 120px;
+  width: 214px;
+  height: 73px;
   border: ${({ logoUrl }) => !logoUrl && "3px solid white"};
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: url(${({ logoUrl }) => logoUrl});
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   ::after {
     content: "Logo";
@@ -50,31 +50,35 @@ export const LogoContainer = styled.a<IHeaderConfig>`
 
 export const Nav = styled.nav`
   display: flex;
-  gap: 20px;
+  gap: 30px;
   a {
     color: white;
     text-decoration: none;
-		text-transform: uppercase;
-		font-size: 14px;
+    text-transform: uppercase;
+    font-size: 15px;
   }
 `;
 
 export const SocialMediaContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
-  > a {
+  gap: 25px;
+  a {
     color: var(--gold-color);
     text-decoration: none;
-    font-size: 12px;
+    font-size: 15px;
+  }
+  > div {
+    display: flex;
+    gap: 10px;
   }
 `;
 export const SocialMediaAncorIcon = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background-color: var(--gold-color);
   border-radius: 100%;
   svg {

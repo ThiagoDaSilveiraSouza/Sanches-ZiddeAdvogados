@@ -20,7 +20,7 @@ import {
 
 export const Header = () => {
   const headerConfig: IHeaderConfig = {
-    height: 80,
+    height: 157,
     logoUrl: companyData.logo.first,
   };
   return (
@@ -38,18 +38,20 @@ export const Header = () => {
             <a href={`tel:${companyData.phone}`} target="_blank">
               {companyData.phone}
             </a>
-            <SocialMediaAncorIcon
-              href={companyData.socialMedia.instagram}
-              target="_blank"
-            >
-              <AiOutlineInstagram />
-            </SocialMediaAncorIcon>
-            <SocialMediaAncorIcon
-              href={companyData.socialMedia.facebook}
-              target="_blank"
-            >
-              <FaFacebookF />
-            </SocialMediaAncorIcon>
+            <div>
+              <SocialMediaAncorIcon
+                href={companyData.socialMedia.instagram}
+                target="_blank"
+              >
+                <AiOutlineInstagram />
+              </SocialMediaAncorIcon>
+              <SocialMediaAncorIcon
+                href={companyData.socialMedia.facebook}
+                target="_blank"
+              >
+                <FaFacebookF />
+              </SocialMediaAncorIcon>
+            </div>
           </SocialMediaContainer>
         </div>
       </HeaderContainer>
