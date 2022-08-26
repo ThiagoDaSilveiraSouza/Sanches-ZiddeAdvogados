@@ -23,6 +23,6 @@ export const CardMission = styled.div`
   p {
     margin: 0;
     font-size: 16px;
-    margin-top: 17px;
+    margin-top: 12px;
   }
 `;
