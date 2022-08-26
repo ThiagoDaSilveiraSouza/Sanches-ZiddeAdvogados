@@ -8,6 +8,7 @@ export const Credentials = () => {
       </ImgContent>
       <TextCredentialsContent>
         <h2>Dra. Rachel Sanches Zidde</h2>
+        <hr/>
         <h5>SÓCIA FUNDADORA DO ESCRITÓRIO SANCHES & ZIDDE ADVOGADOS</h5>
         <p>
           Advogada formada pela UNIFESO- Centro Universitário Serra dos Órgãos,
