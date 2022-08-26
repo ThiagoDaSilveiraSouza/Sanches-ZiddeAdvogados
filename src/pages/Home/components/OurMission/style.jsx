@@ -1,15 +1,27 @@
 import styled from "styled-components";
 
 export const OurMissionContent = styled.section`
-display: flex;
-text-align: center;
-/* background-color: blue; */
-`
+  text-align: center;
+
+`;
 export const OurMissionDiv = styled.div`
-flex-direction: row; 
-flex-wrap: wrap;
-max-width: 200px;
-/* background-color: red; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 90px;
+`;
 
-`
-
+export const CardMission = styled.div`
+  padding-top: 55px;
+  padding-bottom: 145px;
+  max-width: 272px;
+  h5 {
+    margin:0;
+    font-size: 20px;
+    margin-top:25px;
+  }
+  p {
+    margin: 0;
+    font-size: 16px;
+    margin-top: 17px;
+  }
+`;
