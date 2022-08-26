@@ -9,7 +9,8 @@ export const CardContent = styled.div<ICard>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 12px;
   background: var(--gray-color);
   box-shadow: 0 0 3px 0 gray;
   padding: 20px;
@@ -19,8 +20,8 @@ export const CardContent = styled.div<ICard>`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border: ${({ icon }) => !icon && "3px solid black"};
     ::before {
       content: "Icon";
@@ -33,18 +34,8 @@ export const CardContent = styled.div<ICard>`
   }
 
   h3 {
-    font-size: 14px;
+    font-size: 22px;
+    line-height: 22px;
     text-align: center;
-  }
-
-  button {
-    padding: 5px;
-    border: 2px solid var(--gold-color);
-    color: var(--gold-color);
-    font-weight: bolder;
-    cursor: pointer;
-    :hover {
-      box-shadow: 0 0 3px 0 var(--gold-color);
-    }
   }
 `;

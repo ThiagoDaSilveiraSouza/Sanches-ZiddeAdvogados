@@ -20,7 +20,7 @@ const defaultConfig: IOcupationAreaConfig = {
 };
 
 interface IOcupationArea {
-  config: IOcupationAreaConfig;
+  config?: IOcupationAreaConfig;
 }
 export const OccupationArea: FC<IOcupationArea> = ({
   config = defaultConfig,
@@ -36,16 +36,18 @@ export const OccupationArea: FC<IOcupationArea> = ({
   return (
     <>
       <OccupationAreaContent {...config}>
-        <h2>Áreas de atuação</h2>
-        <CardContainer>
-          {cardList.map((card, index) => (
-            <Card
-              key={card.title + "-" + index}
-              card={card}
-              buttonHandlerClick={() => openCardModalData(index)}
-            />
-          ))}
-        </CardContainer>
+        <div className="centralizer">
+          <h2>Áreas de atuação</h2>
+          <CardContainer>
+            {cardList.map((card, index) => (
+              <Card
+                key={card.title + "-" + index}
+                card={card}
+                buttonHandlerClick={() => openCardModalData(index)}
+              />
+            ))}
+          </CardContainer>
+        </div>
       </OccupationAreaContent>
       <Modal useModal={[modalIsOpen, setModalIsOpen]}>
         <ModalContent selectedCard={cardList[cardSelectedIndex]} />

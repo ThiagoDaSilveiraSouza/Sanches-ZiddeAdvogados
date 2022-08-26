@@ -5,7 +5,8 @@ export const GlobalStyle = createGlobalStyle`
     
     /* font */
     --primary-font: 'Mukta', sans-serif;
-
+    --secondary-font: 'Amiri', serif;
+    
     /* color */
     --dark-color: #191919;
     --gold-color: #A38334;
@@ -18,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family:var(--primary-font);
+    
   }
   .centralizer{
     width: 1140px;

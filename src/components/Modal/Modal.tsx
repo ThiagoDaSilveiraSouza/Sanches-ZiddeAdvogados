@@ -23,16 +23,16 @@ export const Modal: FC<IModal> = ({
 }) => {
   const [modalIsOpen, setModalIsOpen] = useModal;
   return (
-    <ModalContainer modalIsOpen={modalIsOpen} config={config}>
+    <ModalContainer modalIsOpen={modalIsOpen} {...config}>
       <ModalBackground
         modalIsOpen={modalIsOpen}
-        config={config}
+        {...config}
         onClick={() => setModalIsOpen(false)}
       />
-      <ModalCard modalIsOpen={modalIsOpen} config={config}>
+      <ModalCard modalIsOpen={modalIsOpen} {...config}>
         <ModalCardCloseButton
           modalIsOpen={modalIsOpen}
-          config={config}
+          {...config}
           onClick={() => setModalIsOpen(false)}
         />
         {children}

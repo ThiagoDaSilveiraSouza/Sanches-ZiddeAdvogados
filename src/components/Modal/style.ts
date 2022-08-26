@@ -3,9 +3,8 @@ import styled from "styled-components";
 // Modal interface
 import { IModalDefaultConfigs } from "./interface";
 
-interface IModalContainerStatus {
+interface IModalContainerStatus extends IModalDefaultConfigs {
   modalIsOpen: boolean;
-  config?: IModalDefaultConfigs;
 }
 
 export const ModalContainer = styled.section<IModalContainerStatus>`
@@ -31,21 +30,21 @@ export const ModalBackground = styled.div<IModalContainerStatus>`
 
 export const ModalCard = styled.div<IModalContainerStatus>`
   position: absolute;
-  left: ${({ config }) => (config?.cardPosition === "left" ? 0 : "unset")};
-  right: ${({ config }) => (config?.cardPosition === "right" ? 0 : "unset")};
+  left: ${({ cardPosition }) => (cardPosition === "left" ? 0 : "unset")};
+  right: ${({ cardPosition }) => (cardPosition === "right" ? 0 : "unset")};
   background: white;
-  padding: ${({ config }) => config?.cardPadding ?? config?.cardPadding};
+  padding: ${({ cardPadding }) => cardPadding ?? cardPadding};
   width: 90vw;
   max-width: 500px;
-  height: ${({ config }) => config?.cardPosition !== "center" && "100vh"};
-  max-height: ${({ config }) =>
-    config?.cardPosition !== "center" ? "unset" : "400px"};
+  height: ${({ cardPosition }) => cardPosition !== "center" && "100vh"};
+  max-height: ${({ cardPosition }) =>
+    cardPosition !== "center" ? "unset" : "400px"};
   box-sizing: border-box;
   box-shadow: 0 0 3px 0 gray;
-  transform: ${({ modalIsOpen, config }) => {
-    if (config?.cardPosition === "left") {
+  transform: ${({ modalIsOpen, cardPosition }) => {
+    if (cardPosition === "left") {
       return modalIsOpen ? "translateX(0)" : "translateX(-100%)";
-    } else if (config?.cardPosition === "right") {
+    } else if (cardPosition === "right") {
       return modalIsOpen ? "translateX(0)" : "translateX(100%)";
     }
     return modalIsOpen ? "translateY(0)" : "translateY(-100%)";
