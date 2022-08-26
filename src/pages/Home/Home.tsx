@@ -2,7 +2,7 @@
 import { Header } from "../../components";
 
 // Home components
-import { OccupationArea, MainBanner, WhoWheAre, OurMission } from "./components";
+import { OccupationArea, MainBanner, WhoWheAre, OurMission, Credentials } from "./components";
 
 import{} from "./components"
 export const Home = () => {
@@ -13,6 +13,7 @@ export const Home = () => {
       <WhoWheAre/>
       <OurMission/>
       <OccupationArea />
+      <Credentials/>
     </div>
   );
 };
