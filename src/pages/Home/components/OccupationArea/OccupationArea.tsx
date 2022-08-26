@@ -3,6 +3,9 @@ import { FC, useState } from "react";
 import { Modal } from "../../../../components";
 import { cardList } from "./data";
 
+// img
+import backgroundImg from "/banner-atuacao.png";
+
 // interface
 import { IOcupationAreaConfig } from "./interface";
 
@@ -13,7 +16,7 @@ import { Card, ModalContent } from "./components";
 import { OccupationAreaContent, CardContainer } from "./style";
 
 const defaultConfig: IOcupationAreaConfig = {
-  backgroundImg: "",
+  backgroundImg: backgroundImg,
 };
 
 interface IOcupationArea {

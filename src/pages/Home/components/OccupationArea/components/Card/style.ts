@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { ICard } from "../../interface";
 
 export const CardContent = styled.div<ICard>`
-  width: 250px;
-  height: 200px;
+  width: 339px;
+  height: 273px;
   display: flex;
   flex-direction: column;
   align-items: center;
