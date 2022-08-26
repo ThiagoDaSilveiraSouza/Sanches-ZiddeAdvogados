@@ -35,7 +35,6 @@ export const CardPerformance = styled.div`
   transform: translateY(-38px);
 
   p {
-   
-    font-size: 16px
+    font-size: 16px;
   }
 `;
