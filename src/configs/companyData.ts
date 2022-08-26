@@ -1,5 +1,5 @@
 // img
-import firstLogo from "/logo.jpeg";
+import firstLogo from "/logo.png";
 
 export const companyData = {
   name: "Sanches & Zidde advogados",
