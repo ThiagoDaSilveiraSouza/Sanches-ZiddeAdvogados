@@ -14,7 +14,7 @@ export const OurMissionDiv = styled.div`
 
 export const CardMission = styled.div`
   max-width: 272px;
-  height: 235px;
+  min-height: 235px;
 
   img {
     height: 51px;
