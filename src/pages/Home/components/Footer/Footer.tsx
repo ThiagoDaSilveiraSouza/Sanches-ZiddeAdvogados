@@ -14,12 +14,13 @@ export const FooterContent = styled.section<IFooterContent>`
   padding-top: 143px;
   box-sizing: border-box;
 
-  div {
+  > div {
     display: flex;
     flex-direction: column;
     align-items: center;
     > img {
-      width: 305px;
+      max-width: 305px;
+      width: 100%;
     }
   }
 `;
