@@ -15,6 +15,11 @@ export const CardMission = styled.div`
   padding-top: 55px;
   padding-bottom: 145px;
   max-width: 272px;
+
+  img{
+    height: 51px;
+    width: 51px;
+  }
   h5 {
     margin:0;
     font-size: 20px;
