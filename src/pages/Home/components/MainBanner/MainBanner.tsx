@@ -7,13 +7,12 @@ export const MainBanner = () => {
     <MainBannerContent>
       <TextContent className="centralizer">
         <p>Escritório Especializado em</p>
-        <h1>
-          Direito Empresarial <br /> e do Trabalho
-        </h1>
-        <Button style={{ color: "white", width: 261, height:47, fontSize:16, flexWrap:"nowrap" }}>
-          {" "}
-          QUERO FAZER UMA CONSULTA
-        </Button>
+        <h1>Direito Empresarial e do Trabalho</h1>
+        <a href="/" target="_blank">
+          <Button fontSize="16px" padding="10px 30px" fontColor="white">
+            Quero fazer uma consulta
+          </Button>
+        </a>
       </TextContent>
     </MainBannerContent>
   );
