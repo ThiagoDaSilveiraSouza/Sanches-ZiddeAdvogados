@@ -5,6 +5,8 @@ export const WhoWheAre = () => {
   return (
     <WhoWheAreContent className="centralizer">
       <CardWhoWheAre>
+        <h2>Quem Somos</h2>
+        <hr />
         <p>
           Gerido pela advogada Rachel Sanches Zidde, OAB/RJ 149.380,
           sócia-diretora desde 2010, com mais de 13 anos de experiência, é
