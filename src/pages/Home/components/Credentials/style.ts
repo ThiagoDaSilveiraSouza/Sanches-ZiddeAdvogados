@@ -12,7 +12,15 @@ export const CredentialsContent = styled.section`
   }
 `;
 
-export const ImgContent = styled.section``;
+export const ImgContent = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;  
+  img{
+    max-width: 100%;
+  }
+`;
 export const TextCredentialsContent = styled.section`
   h2 {
     margin: 0;
