@@ -24,5 +24,6 @@ export const TextContent = styled.div`
     font-size: calc(3em + 1vw);
     line-height: 110%;
     padding-bottom: 30px;
+    font-family: var(--secondary-font);
   }
 `;
