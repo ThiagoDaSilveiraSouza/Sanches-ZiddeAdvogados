@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const OurMissionContent = styled.section`
   text-align: center;
-
+  margin-top: 135px;
+  margin-bottom: 145px;
 `;
 export const OurMissionDiv = styled.div`
   display: flex;
@@ -12,18 +13,17 @@ export const OurMissionDiv = styled.div`
 `;
 
 export const CardMission = styled.div`
-  padding-top: 55px;
-  padding-bottom: 145px;
   max-width: 272px;
+  height: 235px;
 
-  img{
+  img {
     height: 51px;
     width: 51px;
   }
   h5 {
-    margin:0;
+    margin: 0;
     font-size: 20px;
-    margin-top:25px;
+    margin-top: 25px;
   }
   p {
     margin: 0;
