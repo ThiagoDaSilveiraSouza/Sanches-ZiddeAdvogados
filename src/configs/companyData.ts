@@ -1,5 +1,6 @@
 // img
 import firstLogo from "/logo.png";
+import secondLogo from "/logo-2.svg";
 
 export const companyData = {
   name: "Sanches & Zidde advogados",
@@ -9,7 +10,7 @@ export const companyData = {
   email: "",
   logo: {
     first: firstLogo,
-    second: "",
+    second: secondLogo,
   },
   socialMedia: {
     facebook: "",
