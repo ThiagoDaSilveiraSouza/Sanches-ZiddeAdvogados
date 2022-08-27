@@ -20,7 +20,6 @@ import {
   SocialMediaContainer,
   SocialMediaAncorIcon,
   MenuContainer,
-  MenuContainerCloseButton,
 } from "./style";
 import { useState } from "react";
 

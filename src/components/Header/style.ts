@@ -33,14 +33,15 @@ export const HeaderContainer = styled.header<IHeaderConfig>`
 `;
 
 export const LogoContainer = styled.a<IHeaderConfig>`
-  width: 214px;
+  flex: 0 1 214px;
   height: 73px;
   border: ${({ logoUrl }) => !logoUrl && "3px solid white"};
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: url(${({ logoUrl }) => logoUrl});
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
   background-position: center;
   ::after {
     content: "Logo";
@@ -91,15 +92,6 @@ export const Nav = styled.nav`
       text-align: center;
     }
   }
-`;
-
-export const MenuContainerCloseButton = styled.div`
-  top: 20px;
-  right: 20px;
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border: 1px solid white;
 `;
 
 export const SocialMediaContainer = styled.div`
