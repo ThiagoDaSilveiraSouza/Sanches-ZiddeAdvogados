@@ -8,6 +8,9 @@ import { companyData } from "../../configs";
 // interface
 import { IHeaderConfig } from "./interface";
 
+// Header components
+import { HamburgerButton } from "./components";
+
 // Header Style
 import {
   HeaderContainer,
@@ -16,43 +19,55 @@ import {
   Nav,
   SocialMediaContainer,
   SocialMediaAncorIcon,
+  MenuContainer,
+  MenuContainerCloseButton,
 } from "./style";
+import { useState } from "react";
 
 export const Header = () => {
   const headerConfig: IHeaderConfig = {
     height: 157,
     logoUrl: companyData.logo.first,
   };
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
   return (
     <>
       <ShadowHeader {...headerConfig} />
       <HeaderContainer {...headerConfig}>
         <div className="centralizer">
           <LogoContainer href="/" {...headerConfig} />
-          <Nav>
-            <a href="/">Quem somos</a>
-            <a href="/">Areas de atuação</a>
-            <a href="/">Fale conosco</a>
-          </Nav>
-          <SocialMediaContainer>
-            <a href={`tel:${companyData.phone}`} target="_blank">
-              {companyData.phone}
-            </a>
-            <div>
-              <SocialMediaAncorIcon
-                href={companyData.socialMedia.instagram}
-                target="_blank"
-              >
-                <AiOutlineInstagram />
-              </SocialMediaAncorIcon>
-              <SocialMediaAncorIcon
-                href={companyData.socialMedia.facebook}
-                target="_blank"
-              >
-                <FaFacebookF />
-              </SocialMediaAncorIcon>
-            </div>
-          </SocialMediaContainer>
+          <MenuContainer menuIsOpen={menuIsOpen}>
+            {/* <MenuContainerCloseButton onClick={() => setMenuIsOpen(false)} /> */}
+            <Nav>
+              <a href="/">Quem somos</a>
+              <a href="/">Areas de atuação</a>
+              <a href="/">Fale conosco</a>
+            </Nav>
+            <SocialMediaContainer>
+              <a href={`tel:${companyData.phone}`} target="_blank">
+                {companyData.phone}
+              </a>
+              <div>
+                <SocialMediaAncorIcon
+                  href={companyData.socialMedia.instagram}
+                  target="_blank"
+                >
+                  <AiOutlineInstagram />
+                </SocialMediaAncorIcon>
+                <SocialMediaAncorIcon
+                  href={companyData.socialMedia.facebook}
+                  target="_blank"
+                >
+                  <FaFacebookF />
+                </SocialMediaAncorIcon>
+              </div>
+            </SocialMediaContainer>
+          </MenuContainer>
+          <HamburgerButton
+            useButton={[menuIsOpen, setMenuIsOpen]}
+            zIndex="1002"
+            sizeToHidde="900px"
+          />
         </div>
       </HeaderContainer>
     </>
