@@ -7,8 +7,8 @@ export const OurMission = () => {
     <OurMissionContent className="centralizer">
       <OurMissionDiv>
         {BetterCardList.map((card, index) => (
-          <CardMission>
-            <img src={card.imgPath} alt="" />
+          <CardMission key={index + "-" + card.title}>
+            <img src={card.imgPath} alt={"imagem de " + card.title} />
             <h5>{card.title}</h5>
             <p>{card.description}</p>
           </CardMission>
