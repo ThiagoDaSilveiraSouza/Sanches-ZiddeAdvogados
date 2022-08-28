@@ -7,7 +7,7 @@ export const companyData = {
   phone: "(21) 99999-9999",
   address: "",
   number: "",
-  email: "",
+  email: "email@email.com.br",
   logo: {
     first: firstLogo,
     second: secondLogo,
