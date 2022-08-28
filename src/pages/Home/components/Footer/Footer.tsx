@@ -1,42 +1,55 @@
-import styled from "styled-components";
+import { FormEventHandler, useState } from "react";
+
+// configs
 import { companyData } from "../../../../configs";
+
+// icons
+import { AiOutlineInstagram } from "react-icons/ai";
+import { FaFacebookF } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+
+// components
+import { Button } from "../../../../components";
 
 // img
 import footerBg from "/bg-rodapé.png";
 
-interface IFooterContent {
-  footerBg: string;
-}
+// style
+import {
+  DataContainer,
+  FooterContent,
+  FormContainer,
+  Label,
+  MainContainer,
+  PhoneContent,
+  SocialMediaContent,
+} from "./style";
 
-export const FooterContent = styled.section<IFooterContent>`
-  min-height: 862px;
-  background-image: ${({ footerBg }) => `url(${footerBg})`};
-  padding-top: 143px;
-  box-sizing: border-box;
+// utils
+import { getFormValues, validateFormValues } from "./utils";
 
-  > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    > img {
-      max-width: 305px;
-      width: 100%;
-    }
-  }
-`;
-
-export const MainContainer = styled.main`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  > * {
-    flex: 1 1 219px;
-  }
-`;
-
-export const DataContainer = styled.div``;
+// interface
+import { IValidateFormValuesResponse } from "./interface";
 
 export const Footer = ({}) => {
+  const [formResponse, setFormResponse] =
+    useState<IValidateFormValuesResponse>();
+
+  const formHandlerSubmit: FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
+    const formValues = getFormValues(event);
+    const validatedFormValues = validateFormValues(formValues);
+
+    setFormResponse(validatedFormValues);
+
+    if (!validatedFormValues.status) {
+      console.log("Mensagem não enviada");
+      return;
+    }
+    console.log("Mensagem Enviada");
+  };
+
   return (
     <FooterContent footerBg={footerBg}>
       <div className="centralizer">
@@ -44,7 +57,63 @@ export const Footer = ({}) => {
         <MainContainer>
           <DataContainer>
             <h3>Fale Conosco</h3>
+            <PhoneContent>
+              <p>
+                <FaPhone style={{ transform: "scaleX(-1)" }} />
+                {companyData.phone}
+              </p>
+              <p>
+                <MdEmail />
+                {companyData.email}
+              </p>
+            </PhoneContent>
+            <SocialMediaContent>
+              <a href="/">
+                <AiOutlineInstagram />
+              </a>
+              <a href="/">
+                <FaFacebookF />
+              </a>
+            </SocialMediaContent>
           </DataContainer>
+          <FormContainer onSubmit={formHandlerSubmit}>
+            <Label>
+              <div>
+                Seu nome:{" "}
+                <span>
+                  {!formResponse?.fields.userName.fieldIsNull &&
+                    formResponse?.alertIsOn &&
+                    "Campo Invalido"}
+                </span>
+              </div>
+              <input type="text" name="userName" />
+            </Label>
+            <Label>
+              <div>
+                Seu email:{" "}
+                <span>
+                  {!formResponse?.fields.email.fieldIsNull &&
+                    formResponse?.alertIsOn &&
+                    "Campo Invalido"}
+                </span>
+              </div>
+              <input type="email" name="email" />
+            </Label>
+            <Label>
+              <div>
+                Sua mensagem:{" "}
+                <span>
+                  {!formResponse?.fields.message.fieldIsNull &&
+                    formResponse?.alertIsOn &&
+                    "Campo Invalido"}
+                </span>
+              </div>
+              <textarea rows={7} name="message" />
+            </Label>
+            <div>
+              <Button type="submit">Enviar</Button>
+            </div>
+          </FormContainer>
         </MainContainer>
       </div>
     </FooterContent>
