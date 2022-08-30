@@ -1,3 +1,5 @@
+import { useCallback, useEffect, useState } from "react";
+
 // icons
 import { AiOutlineInstagram } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
@@ -21,7 +23,7 @@ import {
   SocialMediaAncorIcon,
   MenuContainer,
 } from "./style";
-import { useState } from "react";
+import { windowMouseOverEvent, windowScrollEvent } from "./utils";
 
 export const Header = () => {
   const headerConfig: IHeaderConfig = {
@@ -29,14 +31,24 @@ export const Header = () => {
     logoUrl: companyData.logo.first,
   };
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [menuIsHidden, setMenuIsHidden] = useState(false);
+
+  const addWindowMouseEvents = useCallback(() => {
+    windowScrollEvent([menuIsHidden, setMenuIsHidden], headerConfig.height);
+    windowMouseOverEvent([menuIsHidden, setMenuIsHidden], headerConfig.height);
+  }, [menuIsOpen, menuIsHidden]);
+
+  useEffect(() => {
+    addWindowMouseEvents();
+  }, []);
+
   return (
     <>
       <ShadowHeader {...headerConfig} />
-      <HeaderContainer {...headerConfig}>
+      <HeaderContainer {...headerConfig} menuIsHidden={menuIsHidden}>
         <div className="centralizer">
           <LogoContainer href="/" {...headerConfig} />
           <MenuContainer menuIsOpen={menuIsOpen}>
-            {/* <MenuContainerCloseButton onClick={() => setMenuIsOpen(false)} /> */}
             <Nav>
               <a href="/">Quem somos</a>
               <a href="/">Areas de atuação</a>

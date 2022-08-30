@@ -5,10 +5,11 @@ import { IHeaderConfig, IMenuContainer } from "./interface";
 
 export const ShadowHeader = styled.div<IHeaderConfig>`
   height: ${({ height }) => height + "px"};
+  background: var(--dark-color);
 `;
 
 export const HeaderContainer = styled.header<IHeaderConfig>`
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   height: ${({ height }) => height + "px"};
@@ -16,6 +17,8 @@ export const HeaderContainer = styled.header<IHeaderConfig>`
   background: var(--dark-color);
   color: white;
   z-index: 1001;
+  transform: ${({ menuIsHidden }) => menuIsHidden && "translateY(-100%)"};
+  transition: 0.3s;
   .centralizer {
     display: flex;
     align-items: center;
