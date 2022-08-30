@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 // icons
 import { AiOutlineInstagram } from "react-icons/ai";
@@ -33,9 +33,13 @@ export const Header = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [menuIsHidden, setMenuIsHidden] = useState(false);
 
-  useEffect(() => {
+  const addWindowMouseEvents = useCallback(() => {
     windowScrollEvent([menuIsHidden, setMenuIsHidden], headerConfig.height);
     windowMouseOverEvent([menuIsHidden, setMenuIsHidden], headerConfig.height);
+  }, [menuIsOpen, menuIsHidden]);
+
+  useEffect(() => {
+    addWindowMouseEvents();
   }, []);
 
   return (

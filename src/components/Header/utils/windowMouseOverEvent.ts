@@ -5,7 +5,7 @@ export const windowMouseOverEvent = (
   headerHeight: number
 ) => {
   const [menuIsHidden, setMenuIsHidden] = useMenuIsHidden;
-  window.addEventListener("mouseover", (event: MouseEvent) => {
+  window.addEventListener("mousemove", (event: MouseEvent) => {
     if (event.y <= headerHeight) {
       menuIsHidden && setMenuIsHidden(false);
     }
