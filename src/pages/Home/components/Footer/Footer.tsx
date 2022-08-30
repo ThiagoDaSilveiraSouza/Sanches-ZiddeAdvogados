@@ -38,7 +38,7 @@ import { IValidateFormValuesResponse, messageTypeListTypes } from "./interface";
 export const Footer = ({}) => {
   const [formResponse, setFormResponse] =
     useState<IValidateFormValuesResponse>();
-  const [modalIsShow, setModalIsShow] = useState(true);
+  const [modalIsShow, setModalIsShow] = useState(false);
   const [requestStatus, setRequestStatus] = useState<messageTypeListTypes>();
 
   const openSendMailModal = (status: messageTypeListTypes) => {
