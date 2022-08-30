@@ -1,3 +1,5 @@
+import { messageTypeList } from "./data";
+
 export interface IFooterContent {
   footerBg: string;
 }
@@ -25,3 +27,5 @@ export interface IValidateFormValuesResponse {
   status: boolean;
   alertIsOn: boolean;
 }
+
+export type messageTypeListTypes = keyof typeof messageTypeList;

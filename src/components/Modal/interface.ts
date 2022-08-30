@@ -9,5 +9,5 @@ export interface IModalDefaultConfigs {
 export interface IModal {
   useModal: [boolean, Dispatch<SetStateAction<boolean>>];
   config?: IModalDefaultConfigs;
-  children: ReactNode;
+  children?: ReactNode;
 }

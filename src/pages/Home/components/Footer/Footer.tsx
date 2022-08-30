@@ -12,6 +12,9 @@ import { MdEmail } from "react-icons/md";
 // components
 import { Button } from "../../../../components";
 
+// footer components
+import { SendEmailModal } from "./components";
+
 // img
 import footerBg from "/bg-rodapé.png";
 
@@ -30,11 +33,18 @@ import {
 import { getFormValues, validateFormValues } from "./utils";
 
 // interface
-import { IValidateFormValuesResponse } from "./interface";
+import { IValidateFormValuesResponse, messageTypeListTypes } from "./interface";
 
 export const Footer = ({}) => {
   const [formResponse, setFormResponse] =
     useState<IValidateFormValuesResponse>();
+  const [modalIsShow, setModalIsShow] = useState(true);
+  const [requestStatus, setRequestStatus] = useState<messageTypeListTypes>();
+
+  const openSendMailModal = (status: messageTypeListTypes) => {
+    setRequestStatus(status);
+    setModalIsShow(true);
+  };
 
   const formHandlerSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
@@ -44,10 +54,10 @@ export const Footer = ({}) => {
     setFormResponse(validatedFormValues);
 
     if (!validatedFormValues.status) {
-      console.log("Mensagem não enviada");
+      openSendMailModal("400");
       return;
     }
-    console.log("Mensagem Enviada");
+    openSendMailModal("200");
   };
 
   return (
@@ -116,6 +126,10 @@ export const Footer = ({}) => {
           </FormContainer>
         </MainContainer>
       </div>
+      <SendEmailModal
+        useModal={[modalIsShow, setModalIsShow]}
+        status={requestStatus}
+      />
     </FooterContent>
   );
 };
