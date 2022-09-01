@@ -36,6 +36,7 @@ import { getFormValues, validateFormValues } from "./utils";
 import { IValidateFormValuesResponse, messageTypeListTypes } from "./interface";
 
 export const Footer = ({}) => {
+  const atualYear = new Date().getFullYear();
   const [formResponse, setFormResponse] =
     useState<IValidateFormValuesResponse>();
   const [modalIsShow, setModalIsShow] = useState(false);
@@ -125,6 +126,19 @@ export const Footer = ({}) => {
             </div>
           </FormContainer>
         </MainContainer>
+        <p>© {atualYear} Copyright Sanches & Zidde </p>
+        <p>
+          Desenvolvido por{" "}
+          <strong>
+            <a
+              href="http://www.agenciamojo.com.br/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Agência Mojo
+            </a>
+          </strong>
+        </p>
       </div>
       <SendEmailModal
         useModal={[modalIsShow, setModalIsShow]}
