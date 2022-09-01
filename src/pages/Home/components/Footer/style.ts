@@ -9,7 +9,7 @@ export const FooterContent = styled.section<IFooterContent>`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 143px 0;
+  padding-top: 143px;
   box-sizing: border-box;
 
   > .centralizer {
@@ -20,6 +20,10 @@ export const FooterContent = styled.section<IFooterContent>`
     > img {
       max-width: 305px;
       width: 100%;
+    }
+    p {
+      color: var(--gold-color);
+      margin: 0;
     }
   }
 `;
