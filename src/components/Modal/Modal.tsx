@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 // Modal Interface
 import { IModal, IModalDefaultConfigs } from "./interface";
@@ -22,6 +22,15 @@ export const Modal: FC<IModal> = ({
   config = ModalDefaultConfigs,
 }) => {
   const [modalIsOpen, setModalIsOpen] = useModal;
+
+  const freezePage = (modalIsOpen: boolean) => {
+    const body = document.body;
+    body.style.overflow = modalIsOpen ? "hidden" : "auto";
+  };
+
+  useEffect(() => {
+    freezePage(modalIsOpen);
+  }, [modalIsOpen]);
   return (
     <ModalContainer modalIsOpen={modalIsOpen} {...config}>
       <ModalBackground
