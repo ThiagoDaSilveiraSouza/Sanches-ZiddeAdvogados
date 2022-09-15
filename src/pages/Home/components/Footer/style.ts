@@ -5,7 +5,7 @@ import { IFooterContent } from "./interface";
 
 export const FooterContent = styled.section<IFooterContent>`
   min-height: 862px;
-  background-image: ${({ footerBg }) => `url(${footerBg})`};
+  background-image: ${({ footerBg }) => (footerBg ? `url(${footerBg})` : "")};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -9,6 +9,9 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
+// services
+import { Emailjs } from "../../../../services";
+
 // components
 import { Button } from "../../../../components";
 
@@ -33,32 +36,45 @@ import {
 import { getFormValues, validateFormValues } from "./utils";
 
 // interface
-import { IValidateFormValuesResponse, messageTypeListTypes } from "./interface";
+import { IValidateFormValuesResponse } from "./interface";
 
 export const Footer = ({}) => {
   const atualYear = new Date().getFullYear();
   const [formResponse, setFormResponse] =
     useState<IValidateFormValuesResponse>();
   const [modalIsShow, setModalIsShow] = useState(false);
-  const [requestStatus, setRequestStatus] = useState<messageTypeListTypes>();
+  const [requestStatus, setRequestStatus] = useState<number>();
 
-  const openSendMailModal = (status: messageTypeListTypes) => {
+  const openSendMailModal = (status: number) => {
     setRequestStatus(status);
     setModalIsShow(true);
   };
 
-  const formHandlerSubmit: FormEventHandler<HTMLFormElement> = (event) => {
+  const formHandlerSubmit: FormEventHandler<HTMLFormElement> = async (
+    event
+  ) => {
     event.preventDefault();
+    const formElement = event.target as HTMLFormElement;
     const formValues = getFormValues(event);
     const validatedFormValues = validateFormValues(formValues);
 
     setFormResponse(validatedFormValues);
 
     if (!validatedFormValues.status) {
-      openSendMailModal("400");
+      openSendMailModal(400);
       return;
     }
-    openSendMailModal("200");
+
+    const postResponse = await Emailjs(formValues);
+
+    postResponse.status;
+
+    openSendMailModal(postResponse.status);
+    setTimeout(() => {
+      setModalIsShow(false);
+    }, 2000);
+
+    formElement.reset;
   };
 
   return (

@@ -14,13 +14,16 @@ const messageTypeList = {
   },
 };
 
-type messageTypeListTypes = keyof typeof messageTypeList;
-
-export const SendEmailModal: FC<ISendEmailModal<messageTypeListTypes>> = ({
+export const SendEmailModal: FC<ISendEmailModal<number>> = ({
   useModal,
-  status = "200",
+  status = 200,
 }) => {
-  const { title } = messageTypeList[status];
+  const messageTypeExist = Object.keys(messageTypeList).includes(
+    String(status)
+  );
+  const { title } = messageTypeExist
+    ? messageTypeList[String(status) as keyof typeof messageTypeList]
+    : { title: "Mensagem não enviada, tente novamente mais tarde." };
 
   return (
     <Modal useModal={useModal}>
