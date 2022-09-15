@@ -1,7 +1,7 @@
 import { messageTypeList } from "./data";
 
 export interface IFooterContent {
-  footerBg: string;
+  footerBg?: string;
 }
 
 export interface IFormContainer extends EventTarget {
@@ -27,5 +27,3 @@ export interface IValidateFormValuesResponse {
   status: boolean;
   alertIsOn: boolean;
 }
-
-export type messageTypeListTypes = keyof typeof messageTypeList;
