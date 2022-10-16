@@ -12,16 +12,11 @@ export interface IFormValues {
 }
 export const Emailjs = async (formValues: IFormValues) => {
   const configs = {
-    service_id: "service_r132n1e",
-    template_id: "template_fowfqsc",
-    user_id: "user_u7shaH2Tm7zlcc0hHX8LU",
+    service_id: "service_nncs023",
+    template_id: "template_x2oexfi",
+    user_id: "Gr5cJDuBSNRHq6rQV",
     template_params: formValues,
   };
-
-  const response = await instance.post(
-    "https://api.emailjs.com/api/v1.0/email/send",
-    configs
-  );
-
-  return response;
+  
+  return instance.post("", configs);
 };

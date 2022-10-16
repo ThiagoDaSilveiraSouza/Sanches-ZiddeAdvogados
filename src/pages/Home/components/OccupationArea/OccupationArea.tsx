@@ -34,24 +34,22 @@ export const OccupationArea: FC<IOcupationArea> = ({
   };
 
   return (
-    <>
-      <OccupationAreaContent {...config}>
-        <div className="centralizer">
-          <h2>Áreas de atuação</h2>
-          <CardContainer>
-            {cardList.map((card, index) => (
-              <Card
-                key={card.title + "-" + index}
-                card={card}
-                buttonHandlerClick={() => openCardModalData(index)}
-              />
-            ))}
-          </CardContainer>
-        </div>
-      </OccupationAreaContent>
+    <OccupationAreaContent {...config}>
+      <div className="centralizer">
+        <h2>Áreas de atuação</h2>
+        <CardContainer>
+          {cardList.map((card, index) => (
+            <Card
+              key={card.title + "-" + index}
+              card={card}
+              buttonHandlerClick={() => openCardModalData(index)}
+            />
+          ))}
+        </CardContainer>
+      </div>
       <Modal useModal={[modalIsOpen, setModalIsOpen]}>
         <ModalContent selectedCard={cardList[cardSelectedIndex]} />
       </Modal>
-    </>
+    </OccupationAreaContent>
   );
 };

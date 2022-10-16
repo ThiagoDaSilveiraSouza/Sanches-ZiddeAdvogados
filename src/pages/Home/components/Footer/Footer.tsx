@@ -24,6 +24,7 @@ import footerBg from "/bg-rodapé.png";
 // style
 import {
   DataContainer,
+  DeveloperLink,
   FooterContent,
   FormContainer,
   Label,
@@ -66,12 +67,12 @@ export const Footer = ({}) => {
     }
 
     const postResponse = await Emailjs(formValues);
-
-    postResponse.status;
+    console.log(postResponse);
 
     openSendMailModal(postResponse.status);
     setTimeout(() => {
       setModalIsShow(false);
+      formElement.reset();
     }, 2000);
 
     formElement.reset;
@@ -143,7 +144,7 @@ export const Footer = ({}) => {
           </FormContainer>
         </MainContainer>
         <p>© {atualYear} Copyright Sanches & Zidde </p>
-        <p>
+        <DeveloperLink>
           Desenvolvido por{" "}
           <strong>
             <a
@@ -154,7 +155,7 @@ export const Footer = ({}) => {
               Agência Mojo
             </a>
           </strong>
-        </p>
+        </DeveloperLink>
       </div>
       <SendEmailModal
         useModal={[modalIsShow, setModalIsShow]}
