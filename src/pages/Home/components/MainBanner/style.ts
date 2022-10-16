@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MainBannerContent = styled.section`
   display: flex;
   flex: 1 1;
-  background-image: url(bannerProvisorio.jpg);
+  background-image: url(mainBanner.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

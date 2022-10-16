@@ -106,3 +106,11 @@ export const Label = styled.label`
     height: 35px;
   }
 `;
+
+export const DeveloperLink = styled.p`
+  strong {
+    a {
+      color: #bbcc35;
+    }
+  }
+`;
