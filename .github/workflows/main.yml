@@ -18,4 +18,3 @@ jobs:
           username: ${{ secrets.FTP_PASSWORD }}
           password: ${{ secrets.FTP_USERNAME }}
           local-dir: ./dist/
-          server-dir: public_html
