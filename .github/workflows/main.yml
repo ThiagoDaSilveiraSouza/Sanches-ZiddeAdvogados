@@ -7,8 +7,6 @@ jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
-    runs:
-      using: "node16"
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
