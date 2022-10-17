@@ -6,15 +6,17 @@ jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
-    steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v3
+    runs:
+      using: "composite"
+      steps:
+        - name: 🚚 Get latest code
+          uses: actions/checkout@v3
 
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.2
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_PASSWORD }}
-          password: ${{ secrets.FTP_USERNAME }}
-          local-dir: ./dist/
-          server-dir: public_html
+        - name: 📂 Sync files
+          uses: SamKirkland/FTP-Deploy-Action@4.3.2
+          with:
+            server: ${{ secrets.FTP_HOST }}
+            username: ${{ secrets.FTP_PASSWORD }}
+            password: ${{ secrets.FTP_USERNAME }}
+            local-dir: ./dist/
+            server-dir: public_html
