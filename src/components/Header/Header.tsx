@@ -49,7 +49,7 @@ export const Header = () => {
         <div
           className="centralizer"
           onClick={() => {
-            console.log("Funfou!!");
+            console.log("Funfou novamente!!!");
           }}
         >
           <LogoContainer href="/" {...headerConfig} />
