@@ -20,6 +20,7 @@ export const companyData: ICompanyData = {
     instagram: "",
     whatsapp: "",
   },
+
   lawyers: [
     {
       id: "1",
