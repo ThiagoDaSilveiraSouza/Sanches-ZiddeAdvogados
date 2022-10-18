@@ -8,20 +8,17 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
+      - name: 🏛 Create a build
+        script:
+          - yarn build
+
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         with:
-          # server: ftp.sancheseziddeadvogados.com
-          # username: dev@sancheseziddeadvogados.com
-          # password: Ra231083?
           local-dir: "../../dist/"
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # server-dir: public.html/
-          # rules:
-          # - changes:
-          #   - directory/**/*
