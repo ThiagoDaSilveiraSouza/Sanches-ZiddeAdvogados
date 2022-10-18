@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📀 create a build
-        script:
+        run:
           - npm install
           - npm run build
           - cp -a dist/. public/
