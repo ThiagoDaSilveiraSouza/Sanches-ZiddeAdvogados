@@ -17,8 +17,8 @@ jobs:
           server: ftp.sancheseziddeadvogados.com
           username: dev@sancheseziddeadvogados.com
           password: Ra231083?
+          local-dir: ./dist/
           # server: ${{ secrets.FTP_HOST }}
           # username: ${{ secrets.FTP_PASSWORD }}
           # password: ${{ secrets.FTP_USERNAME }}
           # server-dir: public.html/
-          # local-dir: ./dist/
