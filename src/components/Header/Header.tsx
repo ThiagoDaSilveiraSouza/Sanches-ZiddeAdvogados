@@ -46,12 +46,7 @@ export const Header = () => {
     <>
       <ShadowHeader {...headerConfig} />
       <HeaderContainer {...headerConfig} menuIsHidden={menuIsHidden}>
-        <div
-          className="centralizer"
-          onClick={() => {
-            console.log("Funfou novamente!!!");
-          }}
-        >
+        <div className="centralizer">
           <LogoContainer href="#" {...headerConfig} />
           <MenuContainer menuIsOpen={menuIsOpen}>
             <Nav>
