@@ -24,6 +24,7 @@ import {
   MenuContainer,
 } from "./style";
 import { windowMouseOverEvent, windowScrollEvent } from "./utils";
+import { scrollTo } from "../../utils";
 
 export const Header = () => {
   const headerConfig: IHeaderConfig = {
@@ -47,15 +48,20 @@ export const Header = () => {
       <ShadowHeader {...headerConfig} />
       <HeaderContainer {...headerConfig} menuIsHidden={menuIsHidden}>
         <div className="centralizer">
-          <LogoContainer href="#" {...headerConfig} />
+          <LogoContainer
+            onClick={() => scrollTo("#main-banner")}
+            {...headerConfig}
+          />
           <MenuContainer menuIsOpen={menuIsOpen}>
             <Nav>
-              <a href="#who-whe-are">Quem somos</a>
-              <a href="#occupation-area">Areas de atuação</a>
-              <a href="#footer">Fale conosco</a>
+              <span onClick={() => scrollTo("#who-whe-are")}>Quem somos</span>
+              <span onClick={() => scrollTo("#occupation-area")}>
+                Areas de atuação
+              </span>
+              <span onClick={() => scrollTo("#footer")}>Fale conosco</span>
             </Nav>
             <SocialMediaContainer>
-              <a href={`tel:${companyData.phone}`} target="_blank">
+              <a type="phone" href={`tel:${companyData.phone}`}>
                 {companyData.phone}
               </a>
               <div>

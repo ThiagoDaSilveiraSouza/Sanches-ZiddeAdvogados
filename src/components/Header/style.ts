@@ -35,7 +35,7 @@ export const HeaderContainer = styled.header<IHeaderConfig>`
   }
 `;
 
-export const LogoContainer = styled.a<IHeaderConfig>`
+export const LogoContainer = styled.div<IHeaderConfig>`
   flex: 0 1 214px;
   height: 73px;
   border: ${({ logoUrl }) => !logoUrl && "3px solid white"};
@@ -46,6 +46,8 @@ export const LogoContainer = styled.a<IHeaderConfig>`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  cursor: pointer;
+
   ::after {
     content: "Logo";
     font-size: 30px;
@@ -82,11 +84,13 @@ export const MenuContainer = styled.div<IMenuContainer>`
 export const Nav = styled.nav`
   display: flex;
   gap: 30px;
-  a {
+  a,
+  span {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 15px;
+    cursor: pointer;
   }
 
   @media (max-width: 900px) {

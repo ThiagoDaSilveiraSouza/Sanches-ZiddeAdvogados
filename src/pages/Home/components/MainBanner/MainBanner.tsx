@@ -4,7 +4,7 @@ import { Button } from "../../../../components/Button";
 
 export const MainBanner = () => {
   return (
-    <MainBannerContent>
+    <MainBannerContent id="main-banner">
       <TextContent className="centralizer">
         <p>Escritório Especializado em</p>
         <h1>Direito Empresarial e do Trabalho</h1>
