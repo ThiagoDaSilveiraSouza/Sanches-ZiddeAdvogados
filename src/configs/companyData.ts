@@ -7,7 +7,7 @@ import { ICompanyData } from "src/interfaces/ICompanyData";
 
 export const companyData: ICompanyData = {
   name: "Sanches & Zidde advogados",
-  phone: "(21) 99999-9999",
+  phone: "(21) 98770-4580",
   address: "",
   number: "",
   email: "contato@sancheseziddeadvogados.com",
@@ -17,10 +17,9 @@ export const companyData: ICompanyData = {
   },
   socialMedia: {
     facebook: "",
-    instagram: "",
+    instagram: "https://www.instagram.com/rachelsanches/",
     whatsapp: "",
   },
-
   lawyers: [
     {
       id: "1",

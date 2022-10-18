@@ -121,8 +121,13 @@ export const SocialMediaContainer = styled.div`
     gap: 10px;
   }
 `;
-export const SocialMediaAncorIcon = styled.a`
+
+interface ISocialMediaAncorIcon {
+  haveLink?: string;
+}
+export const SocialMediaAncorIcon = styled.a<ISocialMediaAncorIcon>`
   display: flex;
+  visibility: ${({ haveLink }) => (haveLink?.length ? "visible" : "hidden")};
   justify-content: center;
   align-items: center;
   width: 30px;

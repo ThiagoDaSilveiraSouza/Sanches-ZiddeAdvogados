@@ -99,11 +99,13 @@ export const Footer = ({}) => {
             <SocialMediaContent>
               <SocialMediaAncorIcon
                 href={companyData.socialMedia.instagram}
+                haveLink={companyData.socialMedia.instagram}
                 target="_blank"
               >
                 <AiOutlineInstagram />
               </SocialMediaAncorIcon>
               <SocialMediaAncorIcon
+                haveLink={companyData.socialMedia.facebook}
                 href={companyData.socialMedia.facebook}
                 target="_blank"
               >

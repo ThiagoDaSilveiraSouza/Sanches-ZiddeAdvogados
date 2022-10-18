@@ -67,12 +67,14 @@ export const Header = () => {
               <div>
                 <SocialMediaAncorIcon
                   href={companyData.socialMedia.instagram}
+                  haveLink={companyData.socialMedia.instagram}
                   target="_blank"
-                >
+                  >
                   <AiOutlineInstagram />
                 </SocialMediaAncorIcon>
                 <SocialMediaAncorIcon
                   href={companyData.socialMedia.facebook}
+                  haveLink={companyData.socialMedia.facebook}
                   target="_blank"
                 >
                   <FaFacebookF />
