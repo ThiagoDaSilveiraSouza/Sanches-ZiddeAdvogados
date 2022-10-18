@@ -9,9 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🏛 Create a build
-        uses: actions/checkout@v3
-        script:
-          - yarn build
+        run: npm rum build
 
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
