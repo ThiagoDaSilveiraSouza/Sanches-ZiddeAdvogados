@@ -34,7 +34,7 @@ export const OccupationArea: FC<IOcupationArea> = ({
   };
 
   return (
-    <OccupationAreaContent {...config}>
+    <OccupationAreaContent {...config} id="occupation-area">
       <div className="centralizer">
         <h2>Áreas de atuação</h2>
         <CardContainer>

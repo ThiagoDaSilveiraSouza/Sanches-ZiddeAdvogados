@@ -52,12 +52,12 @@ export const Header = () => {
             console.log("Funfou novamente!!!");
           }}
         >
-          <LogoContainer href="/" {...headerConfig} />
+          <LogoContainer href="#" {...headerConfig} />
           <MenuContainer menuIsOpen={menuIsOpen}>
             <Nav>
-              <a href="/">Quem somos</a>
-              <a href="/">Areas de atuação</a>
-              <a href="/">Fale conosco</a>
+              <a href="#who-whe-are">Quem somos</a>
+              <a href="#occupation-area">Areas de atuação</a>
+              <a href="#footer">Fale conosco</a>
             </Nav>
             <SocialMediaContainer>
               <a href={`tel:${companyData.phone}`} target="_blank">

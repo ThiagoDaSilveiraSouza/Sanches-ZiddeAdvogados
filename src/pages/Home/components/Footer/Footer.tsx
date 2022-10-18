@@ -30,6 +30,7 @@ import {
   Label,
   MainContainer,
   PhoneContent,
+  SocialMediaAncorIcon,
   SocialMediaContent,
 } from "./style";
 
@@ -79,7 +80,7 @@ export const Footer = ({}) => {
   };
 
   return (
-    <FooterContent footerBg={footerBg}>
+    <FooterContent footerBg={footerBg} id="footer">
       <div className="centralizer">
         <img src={companyData.logo.second} alt="" />
         <MainContainer>
@@ -96,12 +97,18 @@ export const Footer = ({}) => {
               </p>
             </PhoneContent>
             <SocialMediaContent>
-              <a href="/">
+              <SocialMediaAncorIcon
+                href={companyData.socialMedia.instagram}
+                target="_blank"
+              >
                 <AiOutlineInstagram />
-              </a>
-              <a href="/">
+              </SocialMediaAncorIcon>
+              <SocialMediaAncorIcon
+                href={companyData.socialMedia.facebook}
+                target="_blank"
+              >
                 <FaFacebookF />
-              </a>
+              </SocialMediaAncorIcon>
             </SocialMediaContent>
           </DataContainer>
           <FormContainer onSubmit={formHandlerSubmit}>

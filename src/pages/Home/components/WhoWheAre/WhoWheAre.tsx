@@ -3,7 +3,7 @@ import { WhoWheAreContent, CardWhoWheAre, CardPerformance } from "./style";
 
 export const WhoWheAre = () => {
   return (
-    <WhoWheAreContent className="centralizer">
+    <WhoWheAreContent className="centralizer" id="who-whe-are">
       <CardWhoWheAre>
         <h2>Quem Somos</h2>
         <hr />

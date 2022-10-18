@@ -114,3 +114,19 @@ export const DeveloperLink = styled.p`
     }
   }
 `;
+
+export const SocialMediaAncorIcon = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: var(--gold-color);
+  border-radius: 100%;
+  svg {
+    color: var(--dark-color);
+  }
+  :hover {
+    box-shadow: 0 0 3px 0 white;
+  }
+`;
