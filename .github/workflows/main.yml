@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🏛 Create a build
-        run: npm rum build
+        run: tsc && vite build
 
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
