@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🏛 Create a build
-        run: tsc && vite build
+        run: pnpm build
 
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
