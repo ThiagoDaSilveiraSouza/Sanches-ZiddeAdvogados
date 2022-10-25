@@ -4,8 +4,6 @@ import { FormEventHandler, useState } from "react";
 import { companyData } from "../../../../configs";
 
 // icons
-import { AiOutlineInstagram } from "react-icons/ai";
-import { FaFacebookF } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
@@ -13,7 +11,7 @@ import { MdEmail } from "react-icons/md";
 import { Emailjs } from "../../../../services";
 
 // components
-import { Button } from "../../../../components";
+import { Button, SocialMedia } from "../../../../components";
 
 // footer components
 import { SendEmailModal } from "./components";
@@ -30,8 +28,6 @@ import {
   Label,
   MainContainer,
   PhoneContent,
-  SocialMediaAncorIcon,
-  SocialMediaContent,
 } from "./style";
 
 // utils
@@ -96,23 +92,8 @@ export const Footer = ({}) => {
                 {companyData.email}
               </p>
             </PhoneContent>
-            <SocialMediaContent>
-              <SocialMediaAncorIcon
-                href={companyData.socialMedia.instagram}
-                haveLink={companyData.socialMedia.instagram}
-                target="_blank"
-              >
-                <AiOutlineInstagram />
-              </SocialMediaAncorIcon>
-              <SocialMediaAncorIcon
-                haveLink={companyData.socialMedia.facebook}
-                href={companyData.socialMedia.facebook}
-                target="_blank"
-              >
-                <FaFacebookF />
-              </SocialMediaAncorIcon>
-            </SocialMediaContent>
           </DataContainer>
+          <SocialMedia havePhone={false} />
           <FormContainer onSubmit={formHandlerSubmit}>
             <Label>
               <div>

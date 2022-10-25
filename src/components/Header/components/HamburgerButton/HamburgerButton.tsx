@@ -4,7 +4,7 @@ import { Dispatch, FC, SetStateAction } from "react";
 import { HamburgerContent } from "./style";
 
 interface IHamburgerButton {
-  useButton: [boolean, Dispatch<SetStateAction<boolean>>];
+  useButton: [boolean, (isOpen: boolean) => void];
   zIndex?: string;
   sizeToHidde?: string;
 }
@@ -20,7 +20,7 @@ export const HamburgerButton: FC<IHamburgerButton> = ({
       isOpen={isOpen}
       zIndex={zIndex}
       sizeToHidde={sizeToHidde}
-      onClick={() => setIsOpen((isOpen) => !isOpen)}
+      onClick={() => setIsOpen(!isOpen)}
     >
       <span />
     </HamburgerContent>

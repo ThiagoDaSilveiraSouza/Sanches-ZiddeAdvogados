@@ -11,9 +11,6 @@ import {
   Footer,
 } from "./components";
 
-// configs
-import { companyData } from "../../configs";
-
 export const Home = () => {
   return (
     <div>

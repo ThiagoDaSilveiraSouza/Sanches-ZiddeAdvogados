@@ -19,19 +19,21 @@ import {
   ShadowHeader,
   LogoContainer,
   Nav,
-  SocialMediaContainer,
-  SocialMediaAncorIcon,
   MenuContainer,
 } from "./style";
 import { windowMouseOverEvent, windowScrollEvent } from "./utils";
 import { scrollTo } from "../../utils";
+import { UseMenu } from "../../Hooks";
+
+// components
+import { SocialMedia } from "../SocialMedia";
 
 export const Header = () => {
   const headerConfig: IHeaderConfig = {
     height: 157,
     logoUrl: companyData.logo.first,
   };
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const { menuIsOpen, setMenuIsOpen } = UseMenu();
   const [menuIsHidden, setMenuIsHidden] = useState(false);
 
   const addWindowMouseEvents = useCallback(() => {
@@ -43,44 +45,33 @@ export const Header = () => {
     addWindowMouseEvents();
   }, []);
 
+  const buttonHandleClick = (targetId: string) => {
+    setMenuIsOpen(false);
+    scrollTo(targetId);
+  };
+
   return (
     <>
       <ShadowHeader {...headerConfig} />
       <HeaderContainer {...headerConfig} menuIsHidden={menuIsHidden}>
         <div className="centralizer">
           <LogoContainer
-            onClick={() => scrollTo("#main-banner")}
+            onClick={() => buttonHandleClick("#main-banner")}
             {...headerConfig}
           />
           <MenuContainer menuIsOpen={menuIsOpen}>
             <Nav>
-              <span onClick={() => scrollTo("#who-whe-are")}>Quem somos</span>
-              <span onClick={() => scrollTo("#occupation-area")}>
+              <span onClick={() => buttonHandleClick("#who-whe-are")}>
+                Quem somos
+              </span>
+              <span onClick={() => buttonHandleClick("#occupation-area")}>
                 Areas de atuação
               </span>
-              <span onClick={() => scrollTo("#footer")}>Fale conosco</span>
+              <span onClick={() => buttonHandleClick("#footer")}>
+                Fale conosco
+              </span>
             </Nav>
-            <SocialMediaContainer>
-              <a type="phone" href={`tel:${companyData.phone}`}>
-                {companyData.phone}
-              </a>
-              <div>
-                <SocialMediaAncorIcon
-                  href={companyData.socialMedia.instagram}
-                  haveLink={companyData.socialMedia.instagram}
-                  target="_blank"
-                  >
-                  <AiOutlineInstagram />
-                </SocialMediaAncorIcon>
-                <SocialMediaAncorIcon
-                  href={companyData.socialMedia.facebook}
-                  haveLink={companyData.socialMedia.facebook}
-                  target="_blank"
-                >
-                  <FaFacebookF />
-                </SocialMediaAncorIcon>
-              </div>
-            </SocialMediaContainer>
+            <SocialMedia mobileWrap={true} />
           </MenuContainer>
           <HamburgerButton
             useButton={[menuIsOpen, setMenuIsOpen]}
