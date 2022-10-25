@@ -92,8 +92,8 @@ export const Footer = ({}) => {
                 {companyData.email}
               </p>
             </PhoneContent>
+            <SocialMedia havePhone={false} />
           </DataContainer>
-          <SocialMedia havePhone={false} />
           <FormContainer onSubmit={formHandlerSubmit}>
             <Label>
               <div>

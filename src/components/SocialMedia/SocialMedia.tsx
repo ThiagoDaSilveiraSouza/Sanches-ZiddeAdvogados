@@ -12,11 +12,13 @@ import { SocialMediaAncorIcon, SocialMediaContainer } from "./style";
 interface ISocialMedia {
   mobileWrap?: boolean;
   havePhone?: boolean;
+  padding?: string;
 }
 
 export const SocialMedia: FC<ISocialMedia> = ({
   mobileWrap,
   havePhone = true,
+  padding = "10px",
 }) => {
   return (
     <SocialMediaContainer mobileWrap={mobileWrap}>

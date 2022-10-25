@@ -2,12 +2,14 @@ import styled from "styled-components";
 
 interface ISocialMediaContainer {
   mobileWrap?: boolean;
+  padding?: string;
 }
 
 export const SocialMediaContainer = styled.div<ISocialMediaContainer>`
   display: flex;
   align-items: center;
   gap: 25px;
+  padding: ${({ padding }) => padding || "10px 0;"};
   a {
     color: var(--gold-color);
     text-decoration: none;
