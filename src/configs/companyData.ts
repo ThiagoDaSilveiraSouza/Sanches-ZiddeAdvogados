@@ -10,7 +10,7 @@ export const companyData: ICompanyData = {
   phone: "(21) 98770-4580",
   address: "",
   number: "",
-  email: "contato@sancheseziddeadvogados.com",
+  email: "contato@sezadvogados.com.br",
   logo: {
     first: firstLogo,
     second: secondLogo,
