@@ -21,7 +21,7 @@ export const SocialMedia: FC<ISocialMedia> = ({
   padding = "10px",
 }) => {
   return (
-    <SocialMediaContainer mobileWrap={mobileWrap}>
+    <SocialMediaContainer mobileWrap={mobileWrap} padding={padding}>
       {havePhone && (
         <a type="phone" href={`tel:${companyData.phone}`}>
           {companyData.phone}
