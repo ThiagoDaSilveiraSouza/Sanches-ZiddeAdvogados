@@ -1,13 +1,17 @@
 // pages
-import { MenuProvider } from "./context";
-import { Home } from "./pages";
+import { MenuProvider, LoginProvider } from "./context";
+
+// routes
+import { MainRoutes } from "./routes";
 
 function App() {
   return (
     <div className="App">
-      <MenuProvider>
-        <Home />
-      </MenuProvider>
+      <LoginProvider>
+        <MenuProvider>
+          <MainRoutes />
+        </MenuProvider>
+      </LoginProvider>
     </div>
   );
 }
