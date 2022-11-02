@@ -18,6 +18,7 @@ export const ModalContainer = styled.section<IModalContainerStatus>`
   height: 100%;
   visibility: ${({ modalIsOpen }) => (modalIsOpen ? "visible" : "hidden")};
   animation-delay: 0.5s;
+  z-index: 1001;
 `;
 
 export const ModalBackground = styled.div<IModalContainerStatus>`

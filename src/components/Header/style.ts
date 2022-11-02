@@ -16,7 +16,7 @@ export const HeaderContainer = styled.header<IHeaderConfig>`
   width: 100%;
   background: var(--dark-color);
   color: white;
-  z-index: 1001;
+  z-index: 1000;
   transform: ${({ menuIsHidden }) => menuIsHidden && "translateY(-100%)"};
   transition: 0.3s;
   .centralizer {
