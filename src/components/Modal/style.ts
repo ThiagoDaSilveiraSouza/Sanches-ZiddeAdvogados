@@ -37,7 +37,8 @@ export const ModalCard = styled.div<IModalContainerStatus>`
   padding: ${({ cardPadding }) => cardPadding ?? cardPadding};
   width: 90vw;
   max-width: 500px;
-  max-height: 100vh;
+  max-height: ${({ cardPosition }) =>
+    cardPosition !== "center" ? "100vh" : "90vh"};
   box-sizing: border-box;
   box-shadow: 0 0 3px 0 gray;
   transform: ${({ modalIsOpen, cardPosition }) => {
@@ -51,6 +52,19 @@ export const ModalCard = styled.div<IModalContainerStatus>`
   opacity: ${({ modalIsOpen }) => (modalIsOpen ? 1 : 0)};
   transition: 0.3s;
   overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 20px;
+  }
 
   @media (max-width: 500px) {
     width: 100%;

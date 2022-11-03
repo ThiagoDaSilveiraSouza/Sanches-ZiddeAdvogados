@@ -5,5 +5,6 @@ export interface IOcupationAreaConfig {
 export interface ICard {
   icon: string;
   title: string;
+  subTitle?: string;
   descriptionList: string[];
 }

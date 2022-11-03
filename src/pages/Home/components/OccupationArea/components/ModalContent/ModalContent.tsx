@@ -25,6 +25,7 @@ export const ModalContent: FC<IModalContent> = ({ selectedCard }) => {
         <img src={selectedCard.icon} alt={selectedCard.title} />
         <h3>{selectedCard.title}</h3>
       </div>
+      <h4>{selectedCard?.subTitle}</h4>
       <ul>
         {selectedCard.descriptionList.map((description, index) => (
           <li key={description + "-" + index}>{description}</li>
