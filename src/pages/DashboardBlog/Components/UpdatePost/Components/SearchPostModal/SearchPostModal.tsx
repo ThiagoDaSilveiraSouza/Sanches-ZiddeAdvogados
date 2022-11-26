@@ -1,74 +1,78 @@
-import { Dispatch, SetStateAction } from "react";
-import { Form, Input, Label } from "../../../../style";
+import {
+  Dispatch,
+  SetStateAction,
+  FormEventHandler,
+  useEffect,
+  useState,
+} from "react";
+
+// interfaces
+import { IPost } from "src/interfaces/IPost";
+
+//services
+import { useFirebase } from "../../../../../../services";
+
+// components
 import { Modal } from "../../../../../../components";
-import styled from "styled-components";
 
-const SearchListContainer = styled.table`
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  border: 1px solid black;
-  height: 300px;
-  > div {
-    overflow-y: auto;
-    height: 100%;
-  }
-`;
+// DashboardBlog style
+import { Form, Input, Label } from "../../../../style";
 
-const Tr = styled.tr`
-  display: flex;
-  th,
-  td {
-    text-align: center;
-    cursor: pointer;
-    :first-child {
-      flex: 0 1 60px;
-    }
-    :nth-child(2) {
-      flex: 0 1 90px;
-    }
-    :nth-child(3) {
-      flex: 1 1 auto;
-    }
-  }
-`;
+//PostItem style
+import { SearchListContainer, TrTitle, TrItem } from "./style";
 
-const TrTitle = styled(Tr)`
-  border-bottom: 1px solid black;
-  background: rgba(0, 0, 0, 0.1);
-`;
+interface IPostItem {
+  post: IPost;
+}
 
-const TrItem = styled(Tr)`
-  :nth-child(odd) {
-    background: rgba(0, 0, 0, 0.03);
-  }
-  :hover {
-    box-shadow: 0 0 3px 0 gray;
-    transition: 0.3s;
-    transform: scaleY(1.01);
-  }
-`;
-
-const PostItem = () => {
-  const currentDate = new Date();
-  const day = currentDate.getUTCDate();
-  const month = currentDate.getUTCMonth();
-  const year = currentDate.getUTCFullYear();
+const PostItem = ({ post }: IPostItem) => {
+  const { id, title, date } = post;
+  const updateDate = new Date(date.seconds);
+  const day = updateDate.getUTCDay().toString().padStart(2, "0");
+  const month = (updateDate.getUTCMonth() + 1).toString().padStart(2, "0");
+  const year = updateDate.getUTCFullYear();
   const stringDate = `${day}/${month}/${year}`;
+  console.log("post", post);
+
   return (
     <TrItem>
-      <td>001</td>
+      <td>{id}</td>
       <td>{stringDate}</td>
-      <td>Título da postagem</td>
+      <td>{title}</td>
     </TrItem>
   );
 };
+interface IFormEventTarget extends EventTarget {
+  title: HTMLInputElement;
+  description: HTMLInputElement;
+  date: HTMLInputElement;
+}
 
 interface ISearchPostModal {
   useModal: [boolean, Dispatch<SetStateAction<boolean>>];
 }
 
 export const SearchPostModal = ({ useModal }: ISearchPostModal) => {
+  const [posts, setPosts] = useState<IPost[]>([]);
+  const { getPosts } = useFirebase();
+
+  const formHandlerSubmit: FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
+
+    const { title, description, date } = event.target as IFormEventTarget;
+  };
+
+  useEffect(() => {
+    const updatePosts = async () => {
+      const postList = (await getPosts()) as IPost[];
+      const havePost = !!postList?.length;
+      if (havePost) {
+        setPosts(postList);
+      }
+    };
+    updatePosts();
+  }, []);
+
   return (
     <Modal useModal={useModal}>
       <Form>
@@ -93,7 +97,16 @@ export const SearchPostModal = ({ useModal }: ISearchPostModal) => {
           <th>Título</th>
         </TrTitle>
         <div>
-          <PostItem />
+          {posts.map((currentPost) => {
+            if (currentPost) {
+              return (
+                <PostItem
+                  post={currentPost}
+                  key={currentPost?.id || currentPost.title}
+                />
+              );
+            }
+          })}
         </div>
       </SearchListContainer>
     </Modal>

@@ -8,6 +8,8 @@ import {
   browserSessionPersistence,
   onAuthStateChanged,
 } from "firebase/auth";
+import { addDoc, collection, DocumentData, getDocs, getFirestore, QuerySnapshot } from "firebase/firestore"
+import { IPost } from "src/interfaces/IPost";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAbst7m8WnCR1Q7DWsoYplJowJN_7VnT-o",
@@ -48,3 +50,39 @@ export const isLoggedOnFirebase = (setIsLogged: Function) => {
     setIsLogged(!!user);
   });
 };
+
+export const useFirebase = () => {
+  const dataBase = getFirestore(app)
+  const postCollectionRef = collection(dataBase, "post")
+
+  const updateResponseToList = (dataResponse: QuerySnapshot<DocumentData>) => {
+    return dataResponse?.docs?.map((doc) => {
+      return { ...doc.data(), id: doc.id }
+    })
+  }
+
+  const getPosts = async () => {
+    try {
+      const posts = await getDocs(postCollectionRef)
+      return updateResponseToList(posts)
+    } catch (err) {
+      console.log("getDocs error:", err)
+    }
+  }
+
+  const createPost = async (post: IPost) => {
+    try {
+      const createResponse = await addDoc(postCollectionRef, post)
+
+      return createResponse
+
+    } catch (err) {
+      console.log("createPost error", err)
+    }
+  }
+
+  return {
+    getPosts,
+    createPost
+  }
+}
