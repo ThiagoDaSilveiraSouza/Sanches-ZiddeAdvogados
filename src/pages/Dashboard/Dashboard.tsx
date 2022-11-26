@@ -1,10 +1,15 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import styled from "styled-components";
 
 // Hooks
 import { UseLogin } from "../../Hooks";
 
-// services
-import { firebaseLoggout } from "../../services";
+// components
+import { SideMenu } from "./components";
+
+const DashboardContainer = styled.section`
+  display: flex;
+`;
 
 export const Dashboard = () => {
   const { loginData } = UseLogin();
@@ -12,12 +17,13 @@ export const Dashboard = () => {
   if (!loginData.isLogged) {
     return <Navigate to="/admin" />;
   }
+
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <button type="button" onClick={() => firebaseLoggout()}>
-        Sair
-      </button>
-    </div>
+    <DashboardContainer>
+      <SideMenu />
+      <div className="centralizer">
+        <Outlet />
+      </div>
+    </DashboardContainer>
   );
 };

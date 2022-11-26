@@ -31,7 +31,7 @@ export const Login = () => {
   };
 
   if (loginData.isLogged) {
-    return <Navigate to="/dashboard" />;
+    return <Navigate to="/dashboard/blog" />;
   }
   return (
     <LoginContainer>

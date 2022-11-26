@@ -5,7 +5,8 @@ import { IButton } from "./interface";
 
 export const Button = styled.button<IButton>`
   padding: ${({ padding }) => padding || "5px 15px"};
-  border: ${({ borderColor }) => borderColor || "1px solid var(--gold-color)"};
+  border: ${({ borderColor }) =>
+    `1px solid ${borderColor || "var(--gold-color)"}`};
   background: ${({ backgroundColor }) => backgroundColor || "transparent"};
   color: ${({ fontColor }) => fontColor || "var(--gold-color)"};
   text-transform: uppercase;
@@ -14,6 +15,6 @@ export const Button = styled.button<IButton>`
   cursor: pointer;
   :hover {
     box-shadow: ${({ borderColor }) =>
-      borderColor || "0 0 3px 0 var(--gold-color)"};
+      `0 0 3px 0  ${borderColor || "var(--gold-color)"}`};
   }
 `;
