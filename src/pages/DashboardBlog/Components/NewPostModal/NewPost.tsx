@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { FormEventHandler } from "react";
+import { FormEventHandler, Dispatch, SetStateAction } from "react";
 import { Timestamp } from "firebase/firestore";
 
 // services
@@ -8,13 +7,18 @@ import { IPost } from "../../../../interfaces/IPost";
 
 // DashboardBlog components
 import { Form, TextArea, Input, Button, Label } from "../../style";
+import { Modal } from "../../../../components";
 
 interface IFormEventHandle extends EventTarget {
   title: HTMLInputElement;
   description: HTMLTextAreaElement;
 }
 
-export const NewPost = () => {
+interface INewPostModal {
+  useModal: [boolean, Dispatch<SetStateAction<boolean>>];
+}
+
+export const NewPostModal = ({ useModal }: INewPostModal) => {
   const { createPost } = useFirebase();
   const formHandlerSubmit: FormEventHandler<HTMLFormElement> = async (
     event
@@ -30,14 +34,11 @@ export const NewPost = () => {
       date: Timestamp.fromDate(currentDate),
     };
 
-    console.log("newPost", newPost);
-
     const createPostResponse = await createPost(newPost);
-    console.log(createPostResponse);
   };
 
   return (
-    <>
+    <Modal useModal={useModal}>
       <h1>Nova Postagem</h1>
       <Form onSubmit={formHandlerSubmit}>
         <Label>
@@ -50,6 +51,6 @@ export const NewPost = () => {
         </Label>
         <Button>Salvar</Button>
       </Form>
-    </>
+    </Modal>
   );
 };

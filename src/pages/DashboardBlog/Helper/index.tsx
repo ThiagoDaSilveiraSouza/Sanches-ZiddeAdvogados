@@ -1,7 +1,7 @@
-import { NewPost, UpdatePost } from "../Components";
+import { NewPostModal, UpdatePost } from "../Components";
 
 export const pageList = {
-  newPost: <NewPost />,
+  newPost: <NewPostModal />,
   updatePost: <UpdatePost />,
 };
 

@@ -64,7 +64,7 @@ export const useFirebase = () => {
   const getPosts = async () => {
     try {
       const posts = await getDocs(postCollectionRef)
-      return updateResponseToList(posts)
+      return updateResponseToList(posts) as IPost[]
     } catch (err) {
       console.log("getDocs error:", err)
     }
