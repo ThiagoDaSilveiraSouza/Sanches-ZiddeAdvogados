@@ -17,9 +17,6 @@ import { IFilters, useAllFilters } from "./utils";
 // DashboardBlog components
 import { Header, NewPostModal, PostTable, UpdatePost } from "./Components";
 
-// DashboardBlog Helper
-import { IPageList, pageList } from "./Helper";
-
 // DashboardBlog style
 import { Form, Label, Input } from "./style";
 
