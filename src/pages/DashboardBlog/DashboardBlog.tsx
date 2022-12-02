@@ -15,7 +15,7 @@ import { useFirebase } from "../../services";
 import { IFilters, useAllFilters } from "./utils";
 
 // DashboardBlog components
-import { Header, NewPostModal, PostTable, UpdatePost } from "./Components";
+import { NewPostModal, PostTable } from "./Components";
 
 // DashboardBlog style
 import { Form, Label, Input } from "./style";
