@@ -8,7 +8,8 @@ import {
   browserSessionPersistence,
   onAuthStateChanged,
 } from "firebase/auth";
-import { addDoc, collection, DocumentData, getDocs, getFirestore, QuerySnapshot } from "firebase/firestore"
+import { addDoc, collection, DocumentData, getDoc, getDocs, getFirestore, QuerySnapshot } from "firebase/firestore"
+import { ICompanyData } from "src/interfaces";
 import { IPost } from "src/interfaces/IPost";
 
 const firebaseConfig = {
@@ -54,6 +55,7 @@ export const isLoggedOnFirebase = (setIsLogged: Function) => {
 export const useFirebase = () => {
   const dataBase = getFirestore(app)
   const postCollectionRef = collection(dataBase, "post")
+  const companyDataCollectionRef = collection(dataBase, "companyData")
 
   const updateResponseToList = (dataResponse: QuerySnapshot<DocumentData>) => {
     return dataResponse?.docs?.map((doc) => {
@@ -77,12 +79,22 @@ export const useFirebase = () => {
       return createResponse
 
     } catch (err) {
-      console.log("createPost error", err)
+      console.warn("createPost error", err)
+    }
+  }
+
+  const getCompanyData = async () => {
+    try {
+      const companyData = await getDocs(companyDataCollectionRef)
+      return updateResponseToList(companyData)[0] as ICompanyData
+    } catch (err) {
+      console.warn("getCompanyData err", err)
     }
   }
 
   return {
     getPosts,
-    createPost
+    createPost,
+    getCompanyData
   }
 }

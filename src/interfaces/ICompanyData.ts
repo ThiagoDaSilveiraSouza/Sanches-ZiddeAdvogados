@@ -8,6 +8,7 @@ export interface ILawyers {
 }
 
 export interface ICompanyData {
+  id?: string,
   name: string;
   phone: string;
   address: string;
