@@ -58,9 +58,10 @@ export const useFirebase = () => {
   const postCollectionRef = collection(dataBase, "post")
   const companyDataCollectionRef = collection(dataBase, "companyData")
 
-  const updateResponseToList = <T>(dataResponse: QuerySnapshot<DocumentData>) => {
+  const updateResponseToList = <T>(dataResponse: QuerySnapshot<T>) => {
     return dataResponse?.docs?.map((doc) => {
-      return { ...doc.data(), id: doc.id } as T
+      const updatedResponseToList = { ...doc.data(), id: doc.id }
+      return updatedResponseToList
     })
   }
 
@@ -90,7 +91,7 @@ export const useFirebase = () => {
   const getPosts = async () => {
     try {
       const posts = await getDocs(postCollectionRef)
-      const updatedPostList = updateResponseToList<IPost>(posts).sort((a, b) => {
+      const updatedPostList = updateResponseToList(posts).sort((a, b) => {
         const aSeconds = a.date.seconds
         const bSeconds = b.date.seconds
 

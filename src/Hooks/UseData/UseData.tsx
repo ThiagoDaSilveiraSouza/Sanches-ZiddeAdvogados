@@ -48,7 +48,7 @@ export const UseData = () => {
   };
 
   const reloadPostListFromApi = async () => {
-    const reloadPostListFromApiResponse = await getPosts();
+    const reloadPostListFromApiResponse = await getPosts() as IPost[];
 
     if (reloadPostListFromApiResponse) {
       console.log(
