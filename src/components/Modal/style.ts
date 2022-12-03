@@ -21,13 +21,16 @@ export const ModalContainer = styled.section<IModalContainerStatus>`
   z-index: 1001;
 `;
 
+
 export const ModalBackground = styled.div<IModalContainerStatus>`
   position: absolute;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
   opacity: ${({ modalIsOpen }) => (modalIsOpen ? 1 : 0)};
-`;
+  `;
+
+
 
 export const ModalCard = styled.div<IModalContainerStatus>`
   position: absolute;
@@ -51,8 +54,7 @@ export const ModalCard = styled.div<IModalContainerStatus>`
   }};
   opacity: ${({ modalIsOpen }) => (modalIsOpen ? 1 : 0)};
   transition: 0.3s;
-  overflow-y: auto;
-
+  
   ::-webkit-scrollbar {
     width: 5px;
   }
@@ -72,7 +74,7 @@ export const ModalCard = styled.div<IModalContainerStatus>`
     height: 100%;
     max-height: 100vh;
   }
-`;
+  `;
 
 export const ModalCardCloseButton = styled.div<IModalContainerStatus>`
   position: absolute;

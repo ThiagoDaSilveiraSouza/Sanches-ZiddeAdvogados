@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+export const DashboardBlogContainer = styled.div`
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-x: auto;
+
+  h1 {
+    font-size: 30px;
+  }
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -10,6 +20,19 @@ export const Form = styled.form`
     margin: 0;
   }
   `;
+
+export const FiltersContainer = styled(Form)`
+  flex-direction: row;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  max-width: 100%;
+`;
+
+export const NewPostButton = styled.button`
+  font-size: 20px;
+  height: fit-content;
+  cursor: pointer;
+`;
 
 export const Label = styled.label`
   display: flex;

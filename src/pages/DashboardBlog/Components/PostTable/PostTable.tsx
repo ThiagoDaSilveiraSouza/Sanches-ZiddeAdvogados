@@ -1,61 +1,58 @@
-import { GrEdit } from "react-icons/gr";
-import { RiDeleteBinLine } from "react-icons/ri";
+import { useState } from "react";
 
-// utils
-import { formatDate } from "../../../../utils";
+import { Table, TableBody, TableContainer, TableHead } from "./style";
 
 // interfaces
 import { IPost } from "../../../../interfaces";
-import {
-  Table,
-  TableBody,
-  TableContainer,
-  TableHead,
-  TableRowEditColumn,
-} from "./style";
 
-interface ITableRow {
-  post: IPost;
-}
-
-export const TableRow = ({ post }: ITableRow) => {
-  const { getDayByTimestamp } = formatDate;
-
-  return (
-    <tr>
-      <td>{post.id}</td>
-      <td>{getDayByTimestamp(post?.date)}</td>
-      <td>{post.title}</td>
-      <TableRowEditColumn>
-        <GrEdit size="20" />
-        <RiDeleteBinLine size="20" />
-      </TableRowEditColumn>
-    </tr>
-  );
-};
+// PostTable components
+import { ConfirmDeletePostModal, TableRow, EditPostModal } from "./components";
 
 interface IPostTable {
   postList: IPost[];
 }
 
 export const PostTable = ({ postList }: IPostTable) => {
+  const [confirmDeletePostModalIsOpen, setConfirmDeletePostModalIsOpen] =
+    useState(false);
+  const [targetPostToDelete, setTargetPostToDelete] = useState<IPost>();
+  const [editPostModalIsOpen, setEditPostModalIsOpen] = useState(false);
+  const [targetPostToUpdate, setTargetPostToUpdate] = useState<IPost>();
+
   return (
     <TableContainer>
       <Table>
         <TableHead>
           <tr>
-            <th>Id</th>
-            <th>Date</th>
+            <th>Data</th>
             <th>Title</th>
             <th>Editar</th>
           </tr>
         </TableHead>
         <TableBody>
           {postList.map((currentPost) => (
-            <TableRow post={currentPost} key={currentPost.id} />
+            <TableRow
+              key={currentPost.id}
+              post={currentPost}
+              setTargetPostToDelete={setTargetPostToDelete}
+              setConfirmDeletePostModalIsOpen={setConfirmDeletePostModalIsOpen}
+              setEditPostModalIsOpen={setEditPostModalIsOpen}
+              setTargetPostToUpdate={setTargetPostToUpdate}
+            />
           ))}
         </TableBody>
       </Table>
+      <ConfirmDeletePostModal
+        useModal={[
+          confirmDeletePostModalIsOpen,
+          setConfirmDeletePostModalIsOpen,
+        ]}
+        targetPostToDelete={targetPostToDelete}
+      />
+      <EditPostModal
+        useModal={[editPostModalIsOpen, setEditPostModalIsOpen]}
+        targetPostToUpdate={targetPostToUpdate}
+      />
     </TableContainer>
   );
 };

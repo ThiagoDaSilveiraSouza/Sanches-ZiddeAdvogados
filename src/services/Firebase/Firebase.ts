@@ -8,9 +8,10 @@ import {
   browserSessionPersistence,
   onAuthStateChanged,
 } from "firebase/auth";
-import { addDoc, collection, DocumentData, getDoc, getDocs, getFirestore, QuerySnapshot } from "firebase/firestore"
+import { addDoc, collection, DocumentData, getDocs, doc, deleteDoc, getFirestore, QuerySnapshot, updateDoc } from "firebase/firestore"
+
 import { ICompanyData } from "src/interfaces";
-import { IPost } from "src/interfaces/IPost";
+import { IPost } from "../../interfaces/IPost";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAbst7m8WnCR1Q7DWsoYplJowJN_7VnT-o",
@@ -57,44 +58,94 @@ export const useFirebase = () => {
   const postCollectionRef = collection(dataBase, "post")
   const companyDataCollectionRef = collection(dataBase, "companyData")
 
-  const updateResponseToList = (dataResponse: QuerySnapshot<DocumentData>) => {
+  const updateResponseToList = <T>(dataResponse: QuerySnapshot<DocumentData>) => {
     return dataResponse?.docs?.map((doc) => {
-      return { ...doc.data(), id: doc.id }
+      return { ...doc.data(), id: doc.id } as T
     })
-  }
-
-  const getPosts = async () => {
-    try {
-      const posts = await getDocs(postCollectionRef)
-      return updateResponseToList(posts) as IPost[]
-    } catch (err) {
-      console.log("getDocs error:", err)
-    }
-  }
-
-  const createPost = async (post: IPost) => {
-    try {
-      const createResponse = await addDoc(postCollectionRef, post)
-
-      return createResponse
-
-    } catch (err) {
-      console.warn("createPost error", err)
-    }
   }
 
   const getCompanyData = async () => {
     try {
       const companyData = await getDocs(companyDataCollectionRef)
-      return updateResponseToList(companyData)[0] as ICompanyData
+      const updatedCompanyData = updateResponseToList(companyData)[0] as ICompanyData
+
+      return updatedCompanyData
     } catch (err) {
       console.warn("getCompanyData err", err)
     }
   }
 
+  const updateSingleCompanyData = async (newCompanyData: ICompanyData) => {
+    try {
+      const updateCompanyResponse = await updateDoc(doc(dataBase, "companyData", "81ZbKUcXXwupicaUWVfY"), { ...newCompanyData })
+      console.log("updateCompanyResponse", updateCompanyResponse)
+
+      return true
+    } catch (err) {
+      console.log(err)
+      return false
+    }
+  }
+
+  const getPosts = async () => {
+    try {
+      const posts = await getDocs(postCollectionRef)
+      const updatedPostList = updateResponseToList<IPost>(posts).sort((a, b) => {
+        const aSeconds = a.date.seconds
+        const bSeconds = b.date.seconds
+
+        return bSeconds - aSeconds
+      })
+      return updatedPostList
+    } catch (err) {
+      console.log("getDocs error:", err)
+    }
+  }
+
+
+  const createPost = async (post: IPost) => {
+    try {
+      const createPostResponse = await addDoc(postCollectionRef, post)
+      console.log("createPostResponse", createPostResponse)
+
+      return createPostResponse
+    } catch (err) {
+      console.warn("createPost error", err)
+    }
+  }
+
+  const updatePostById = async (id: string, newPost: IPost) => {
+    try {
+      const updatePostResponse = await updateDoc(doc(dataBase, "post", id), { ...newPost })
+      console.log("updatePostResponse", updatePostResponse)
+
+      return true
+    } catch (err) {
+      console.log(err)
+      return false
+    }
+  }
+
+  const deletePostById = async (id: string) => {
+    try {
+      const deletePostByIdResponse = await deleteDoc(doc(dataBase, "post", id));
+      console.log("deletePostByIdResponse", deletePostByIdResponse)
+
+      return true
+
+    } catch (err) {
+      console.log(err)
+      return false
+    }
+  }
+
+
   return {
+    getCompanyData,
+    updateSingleCompanyData,
     getPosts,
     createPost,
-    getCompanyData
+    updatePostById,
+    deletePostById
   }
 }

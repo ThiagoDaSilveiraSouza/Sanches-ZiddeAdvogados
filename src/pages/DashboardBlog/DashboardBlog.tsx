@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import { Timestamp } from "firebase/firestore";
-import styled from "styled-components";
 
 // icons
 import { MdOutlinePostAdd } from "react-icons/md";
 
-// interfaces
-import { IPost } from "../../interfaces";
-
-// services
-import { useFirebase } from "../../services";
+// hooks
+import { UseData } from "../../Hooks";
 
 // Dashboardblog utils
 import { IFilters, useAllFilters } from "./utils";
@@ -18,45 +14,22 @@ import { IFilters, useAllFilters } from "./utils";
 import { NewPostModal, PostTable } from "./Components";
 
 // DashboardBlog style
-import { Form, Label, Input } from "./style";
-
-const DashboardBlogContainer = styled.div`
-  padding: 10px;
-  box-sizing: border-box;
-  overflow-x: auto;
-
-  h1 {
-    font-size: 30px;
-  }
-`;
-
-const FiltersContainer = styled(Form)`
-  flex-direction: row;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  max-width: 100%;
-`;
-
-const NewPostButton = styled.button`
-  font-size: 20px;
-  height: fit-content;
-  cursor: pointer;
-`;
+import {
+  DashboardBlogContainer,
+  FiltersContainer,
+  NewPostButton,
+  Label,
+  Input,
+} from "./style";
 
 export const DashboardBlog = () => {
-  const [postList, setPostList] = useState<IPost[]>([]);
+  const { postList, reloadPostListFromApi } = UseData();
   const [NewPostModalIsOpen, setNewPostModalIsOpen] = useState(false);
   const [filters, setFilters] = useState<IFilters>({});
   const postListFiltered = useAllFilters(postList, filters);
-  const { getPosts } = useFirebase();
 
   useEffect(() => {
-    const updatePostList = async () => {
-      const currentPostList = await getPosts();
-      currentPostList && setPostList(currentPostList);
-    };
-
-    updatePostList();
+    reloadPostListFromApi();
   }, []);
 
   return (
@@ -114,8 +87,9 @@ export const DashboardBlog = () => {
           Novo Post <MdOutlinePostAdd />
         </NewPostButton>
       </FiltersContainer>
-      <PostTable postList={postListFiltered} />
+      {/* Modals */}
       <NewPostModal useModal={[NewPostModalIsOpen, setNewPostModalIsOpen]} />
+      <PostTable postList={postListFiltered} />
     </DashboardBlogContainer>
   );
 };

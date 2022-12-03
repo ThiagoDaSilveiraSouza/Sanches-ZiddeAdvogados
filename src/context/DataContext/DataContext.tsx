@@ -6,12 +6,13 @@ import {
   ReactNode,
   useEffect,
 } from "react";
-import { ICompanyData } from "src/interfaces";
+import { ICompanyData, IPost } from "src/interfaces";
 
 import { useFirebase } from "../../services";
 
-interface IData {
+export interface IData {
   companyData: ICompanyData;
+  postsList: IPost[];
 }
 
 type IDataContext = [IData, Dispatch<SetStateAction<IData>>];
@@ -34,6 +35,7 @@ export const dataContextDefaultValue: IData = {
       whatsapp: "",
     },
   },
+  postsList: [],
 };
 
 export const DataContext = createContext<IDataContext>([
@@ -45,24 +47,8 @@ interface IDataProvider {
   children: ReactNode;
 }
 
-const updateCompanyData = async (setData: Dispatch<SetStateAction<IData>>) => {
-  const { getCompanyData } = useFirebase();
-
-  const companyData = await getCompanyData();
-
-  if (companyData) {
-    setData((data) => {
-      data.companyData = companyData;
-      return data;
-    });
-  }
-};
-
 export const DataProvider = ({ children }: IDataProvider) => {
   const [data, setData] = useState(dataContextDefaultValue);
-  useEffect(() => {
-    updateCompanyData(setData);
-  }, []);
 
   return (
     <DataContext.Provider value={[data, setData]}>
