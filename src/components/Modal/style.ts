@@ -18,7 +18,7 @@ export const ModalContainer = styled.section<IModalContainerStatus>`
   height: 100%;
   visibility: ${({ modalIsOpen }) => (modalIsOpen ? "visible" : "hidden")};
   animation-delay: 0.5s;
-  z-index: 1001;
+  z-index: 2001;
 `;
 
 
@@ -37,11 +37,7 @@ export const ModalCard = styled.div<IModalContainerStatus>`
   left: ${({ cardPosition }) => (cardPosition === "left" ? 0 : "unset")};
   right: ${({ cardPosition }) => (cardPosition === "right" ? 0 : "unset")};
   background: white;
-  padding: ${({ cardPadding }) => cardPadding ?? cardPadding};
-  width: 90vw;
-  max-width: 500px;
-  max-height: ${({ cardPosition }) =>
-    cardPosition !== "center" ? "100vh" : "90vh"};
+
   box-sizing: border-box;
   box-shadow: 0 0 3px 0 gray;
   transform: ${({ modalIsOpen, cardPosition }) => {
@@ -55,18 +51,6 @@ export const ModalCard = styled.div<IModalContainerStatus>`
   opacity: ${({ modalIsOpen }) => (modalIsOpen ? 1 : 0)};
   transition: 0.3s;
   
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: black;
-    border-radius: 20px;
-  }
 
   @media (max-width: 500px) {
     width: 100%;
@@ -81,10 +65,12 @@ export const ModalCardCloseButton = styled.div<IModalContainerStatus>`
   top: 15px;
   right: 15px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 29px;
   height: 29px;
+  background: white;
   border: 1px solid var(--gray-color-2);
 
   cursor: pointer;
@@ -108,3 +94,32 @@ export const ModalCardCloseButton = styled.div<IModalContainerStatus>`
     transform: rotate(-45deg);
   }
 `;
+
+
+
+export const ModalCardChildrenContainer = styled.div<IModalDefaultConfigs>`
+  flex: 0 1 300px;
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  padding: 25px;
+  max-width: 500px;
+  max-height: ${({ cardPosition }) =>
+    cardPosition !== "center" ? "100vh" : "90vh"};
+  box-sizing: border-box;
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 20px;
+  }
+
+`

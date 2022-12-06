@@ -7,6 +7,9 @@ import { UseLogin } from "../../Hooks";
 // components
 import { SideMenu } from "./components";
 
+// style
+import { DashboardBlogContainer } from "./style";
+
 const DashboardContainer = styled.section`
   display: flex;
 `;
@@ -22,7 +25,9 @@ export const Dashboard = () => {
     <DashboardContainer>
       <SideMenu />
       <div className="centralizer">
-        <Outlet />
+        <DashboardBlogContainer>
+          <Outlet />
+        </DashboardBlogContainer>
       </div>
     </DashboardContainer>
   );

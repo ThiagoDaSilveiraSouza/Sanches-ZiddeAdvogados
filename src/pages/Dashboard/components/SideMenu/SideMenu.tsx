@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { GrPowerShutdown } from "react-icons/gr";
 import { FiType } from "react-icons/fi";
 import { VscSettingsGear } from "react-icons/vsc";
+import { MdOutlinePostAdd } from "react-icons/md";
 
 // components
 import { HamburgerButton } from "../../../../components";
@@ -129,11 +130,19 @@ export const SideMenu = () => {
             </span>
           </button>
           <SubNav>
+            <Link to="/dashboard/text-page">
+              <button onClick={closeMenu}>
+                <span>Texto do site</span>
+                <span>
+                  <FiType size={30} />
+                </span>
+              </button>
+            </Link>
             <Link to="/dashboard/blog">
               <button onClick={closeMenu}>
                 <span>Blog</span>
                 <span>
-                  <FiType size={30} />
+                  <MdOutlinePostAdd size={30} />
                 </span>
               </button>
             </Link>
