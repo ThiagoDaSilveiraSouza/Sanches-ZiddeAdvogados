@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
-type ICreateUpdateStateProp = <T>(
+type ICreateUpdateStateProp = <T extends object>(
   context: T,
   setContext: Dispatch<SetStateAction<T>>
 ) => (prop: keyof T, value: any) => void;
@@ -18,7 +18,7 @@ export const createUpdateStateProp: ICreateUpdateStateProp = (
       const isSameType = typeof value === typeof newContext[prop];
 
       if (isSameType) {
-        newContext[prop] = value as typeof newContext[typeof prop];
+        return { ...newContext, [prop]: value };
       }
 
       return newContext;

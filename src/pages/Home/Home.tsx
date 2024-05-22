@@ -1,5 +1,5 @@
 // components
-import { Dispatch, SetStateAction, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 // interfaces
 import { ICompanyData, ITextHomeData } from "../../interfaces";
@@ -22,7 +22,6 @@ import {
 
 export const Home = () => {
   const { getHomePageData } = useFirebase();
-  const [companyData, setCompanyData] = useState<ICompanyData>();
   const [homePageTextData, setHomePageTextData] = useState<ITextHomeData>();
 
   const updateHomePagetextData = async () => {
@@ -40,8 +39,8 @@ export const Home = () => {
     <div>
       <Header />
       <MainBanner homePageTextData={homePageTextData as ITextHomeData} />
-      <WhoWheAre homePageTextData={homePageTextData as ITextHomeData}/>
-      <OurMission  homePageTextData={homePageTextData as ITextHomeData} />
+      <WhoWheAre homePageTextData={homePageTextData as ITextHomeData} />
+      <OurMission homePageTextData={homePageTextData as ITextHomeData} />
       <OccupationArea />
       <Credentials />
       <Footer />
