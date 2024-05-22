@@ -1,8 +1,13 @@
 import { OurMissionContent, OurMissionDiv, CardMission } from "./style";
 
 import { BetterCardList } from "./data";
+import { ITextHomeData } from "../../../../interfaces";
 
-export const OurMission = () => {
+interface IWhoWheAre {
+  homePageTextData: ITextHomeData;
+}
+
+export const OurMission = ({ homePageTextData }: IWhoWheAre) => {
   return (
     <OurMissionContent>
       <div className="centralizer">

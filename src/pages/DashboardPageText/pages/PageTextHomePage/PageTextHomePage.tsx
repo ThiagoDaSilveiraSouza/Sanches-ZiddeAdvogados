@@ -38,7 +38,7 @@ const textHomeDefaultData: ITextHomeData = {
 };
 
 export const PageTextHomePage = () => {
-  const { getHomePageData, createHomePageData, updateHomePageData } =
+  const { getHomePageData, updateHomePageData } =
     useFirebase();
   const { navMenuState } = UseNavMenu();
   const [inputValues, setInputvalues] =
