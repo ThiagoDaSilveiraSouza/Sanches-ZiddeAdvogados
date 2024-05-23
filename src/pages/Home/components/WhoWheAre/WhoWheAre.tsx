@@ -20,18 +20,8 @@ export const WhoWheAre = ({ homePageTextData }: IWhoWheAre) => {
 
       <CardPerformance>
         <p>
-<<<<<<< HEAD
-          Com atuação voltada tanto para pessoas físicas quanto para pessoas
-          jurídicas, nos destacamos sobretudo nas áreas, Cível, Administrativa,
-          Trabalhista, Societária, Tributária e Previdenciária. Nossos
-          atendimentos são humanizados, o que nos faz respeitar e dar a devida
-          importância aos problemas que nos são trazidos, de modo a encontrarmos
-          a solução que melhor se encaixe para cada caso individualizado,
-          otimizando tempo e dinheiro dos nossos clientes.
-=======
           {homePageTextData?.container2Text2 ||
             "Atuamos na área de direito do trabalho e direito previdenciário.Nossos atendimentos são humanizados, o que nos faz respeitar e dar a devida importância aos problemas que nos são trazidos, de modo a encontrarmos a solução que melhor se encaixe para cada caso individualizado, otimizando tempo e dinheiro dos nossos clientes."}
->>>>>>> dc12fb01208e3aaf8880d2e0c67fbafb3eb3d740
         </p>
       </CardPerformance>
     </WhoWheAreContent>
