@@ -9,6 +9,7 @@ import {
   ModalBackground,
   ModalCard,
   ModalCardCloseButton,
+  ModalCardChildrenContainer,
 } from "./style";
 
 const ModalDefaultConfigs: IModalDefaultConfigs = {
@@ -44,7 +45,9 @@ export const Modal: FC<IModal> = ({
           {...config}
           onClick={() => setModalIsOpen(false)}
         />
-        {children}
+        <ModalCardChildrenContainer {...config}>
+          {children}
+        </ModalCardChildrenContainer>
       </ModalCard>
     </ModalContainer>
   );

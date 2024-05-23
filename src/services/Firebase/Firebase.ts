@@ -19,7 +19,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 
-import { ICompanyData } from "src/interfaces";
+import { ICompanyData, ITextHomeData } from "src/interfaces";
 import { IPost } from "../../interfaces/IPost";
 
 const firebaseConfig = {
@@ -63,9 +63,16 @@ export const isLoggedOnFirebase = (setIsLogged: Function) => {
 };
 
 export const useFirebase = () => {
+<<<<<<< HEAD
   const dataBase = getFirestore(app);
   const postCollectionRef = collection(dataBase, "post");
   const companyDataCollectionRef = collection(dataBase, "companyData");
+=======
+  const dataBase = getFirestore(app)
+  const postCollectionRef = collection(dataBase, "post")
+  const companyDataCollectionRef = collection(dataBase, "companyData")
+  const homePageDataCollectionRef = collection(dataBase, "homePageData")
+>>>>>>> dc12fb01208e3aaf8880d2e0c67fbafb3eb3d740
 
   const updateResponseToList = <T>(dataResponse: QuerySnapshot<T>) => {
     return dataResponse?.docs?.map((doc) => {
@@ -152,7 +159,34 @@ export const useFirebase = () => {
       console.log(err);
       return false;
     }
+<<<<<<< HEAD
   };
+=======
+  }
+
+  const getHomePageData = async () => {
+    try {
+      const homePageData = await getDocs(homePageDataCollectionRef)
+      const updatedHomePageData = updateResponseToList(homePageData)[0]
+
+      return updatedHomePageData
+    } catch (err) {
+      console.warn("getHomePageData err", err)
+    }
+  }
+
+  const updateHomePageData = async (newCompanyData: ITextHomeData) => {
+    try {
+      const updatedHomePageData = await updateDoc(doc(dataBase, "homePageData", "k2lvZvXSMP2XwYUNf8z0"), { ...newCompanyData })
+
+      return true
+    } catch (err) {
+      console.log(err)
+      return false
+    }
+  }
+
+>>>>>>> dc12fb01208e3aaf8880d2e0c67fbafb3eb3d740
 
   return {
     getCompanyData,
@@ -161,5 +195,12 @@ export const useFirebase = () => {
     createPost,
     updatePostById,
     deletePostById,
+<<<<<<< HEAD
   };
 };
+=======
+    getHomePageData,
+    updateHomePageData
+  }
+}
+>>>>>>> dc12fb01208e3aaf8880d2e0c67fbafb3eb3d740
