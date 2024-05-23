@@ -13,8 +13,10 @@ export const WhoWheAre = ({ homePageTextData }: IWhoWheAre) => {
         <h2>{homePageTextData?.container2Title || "Quem Somos"}</h2>
         <hr />
         <p>
-          {homePageTextData?.container2Text1 ||
-            " Gerido pela advogada Rachel Sanches Zidde, OAB/RJ 149.380, sócia-diretora desde 2010, com mais de 13 anos de experiência, é especializado em direito previdenciário e do trabalho."}
+          {/* {homePageTextData?.container2Text1 ||
+            " Gerido pela advogada Rachel Sanches Zidde, OAB/RJ 149.380, sócia-diretora desde 2010, com mais de 13 anos de experiência"} */}
+          Gerido pela advogada Rachel Sanches Zidde, OAB/RJ 149.380,
+          sócia-diretora desde 2010, com mais de 13 anos de experiência
         </p>
       </CardWhoWheAre>
 

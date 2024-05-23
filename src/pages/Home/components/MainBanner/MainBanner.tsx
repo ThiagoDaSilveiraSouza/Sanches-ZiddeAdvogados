@@ -18,13 +18,14 @@ export const MainBanner = ({ homePageTextData }: IMainBanner) => {
   return (
     <MainBannerContent id="main-banner">
       <TextContent className="centralizer">
-        <p>
+        {/* <p>
           {homePageTextData?.container1Subtitle ||
             "Escritório Especializado em"}
-        </p>
+        </p> */}
         <h1>
-          {homePageTextData?.container1Title ||
-            "Direito Previdenciário e do Trabalho"}
+          {/* {homePageTextData?.container1Title ||
+            "Soluções Jurídicas Especializadas"} */}
+          Soluções Jurídicas Especializadas
         </h1>
         <a href={whatsappLink} target="_blank">
           <Button fontSize="16px" padding="10px 30px" fontColor="white">

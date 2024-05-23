@@ -17,7 +17,7 @@ import { Button, SocialMedia } from "../../../../components";
 import { SendEmailModal } from "./components";
 
 // img
-import footerBg from "/bg-rodapé.png";
+import footerBg from "/bg-rodape.png";
 
 // style
 import {
