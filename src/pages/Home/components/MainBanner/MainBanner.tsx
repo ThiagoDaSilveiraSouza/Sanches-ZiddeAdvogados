@@ -10,7 +10,6 @@ interface IMainBanner {
 }
 
 export const MainBanner = ({ homePageTextData }: IMainBanner) => {
-  console.log("homePageTextData", homePageTextData);
   const whatsappLink = createWhatsappLink(
     "Olá, acabei de acessar o site e estou interessado em seus serviços, pode me ajudar?",
     companyData.number
