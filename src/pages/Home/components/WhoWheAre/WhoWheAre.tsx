@@ -16,11 +16,13 @@ export const WhoWheAre = () => {
 
       <CardPerformance>
         <p>
-          Atuamos na área de direito do trabalho e direito previdenciário.
-          Nossos atendimentos são humanizados, o que nos faz respeitar e dar a
-          devida importância aos problemas que nos são trazidos, de modo a
-          encontrarmos a solução que melhor se encaixe para cada caso
-          individualizado, otimizando tempo e dinheiro dos nossos clientes.
+          Com atuação voltada tanto para pessoas físicas quanto para pessoas
+          jurídicas, nos destacamos sobretudo nas áreas, Cível, Administrativa,
+          Trabalhista, Societária, Tributária e Previdenciária. Nossos
+          atendimentos são humanizados, o que nos faz respeitar e dar a devida
+          importância aos problemas que nos são trazidos, de modo a encontrarmos
+          a solução que melhor se encaixe para cada caso individualizado,
+          otimizando tempo e dinheiro dos nossos clientes.
         </p>
       </CardPerformance>
     </WhoWheAreContent>

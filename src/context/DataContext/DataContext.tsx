@@ -20,6 +20,9 @@ type IDataContext = [IData, Dispatch<SetStateAction<IData>>];
 export const dataContextDefaultValue: IData = {
   companyData: {
     address: "",
+    cep: "",
+    neighborhood: "",
+    state: "",
     email: "",
     lawyers: [],
     logo: {
@@ -27,7 +30,6 @@ export const dataContextDefaultValue: IData = {
       second: "",
     },
     name: "",
-    number: "",
     phone: "",
     socialMedia: {
       facebook: "",

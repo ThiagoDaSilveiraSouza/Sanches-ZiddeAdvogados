@@ -8,12 +8,15 @@ export interface ILawyers {
 }
 
 export interface ICompanyData {
-  id?: string,
+  id?: string;
   name: string;
   phone: string;
   address: string;
-  number: string;
+  neighborhood: string;
+  state: string;
+  cep: string;
   email: string;
+  complement?: string;
   logo: {
     first: string;
     second: string;

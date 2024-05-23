@@ -27,7 +27,7 @@ import {
   FormContainer,
   Label,
   MainContainer,
-  PhoneContent,
+  DataInfoContent,
 } from "./style";
 
 // utils
@@ -82,7 +82,7 @@ export const Footer = ({}) => {
         <MainContainer>
           <DataContainer>
             <h3>Fale Conosco</h3>
-            <PhoneContent>
+            <DataInfoContent>
               <p>
                 <FaPhone style={{ transform: "scaleX(-1)" }} />
                 {companyData.phone}
@@ -91,7 +91,12 @@ export const Footer = ({}) => {
                 <MdEmail />
                 {companyData.email}
               </p>
-            </PhoneContent>
+              <p>{companyData.address}</p>
+              <p>
+                {companyData.neighborhood} - {companyData.state}
+              </p>
+            </DataInfoContent>
+
             <SocialMedia havePhone={false} />
           </DataContainer>
           <FormContainer onSubmit={formHandlerSubmit}>

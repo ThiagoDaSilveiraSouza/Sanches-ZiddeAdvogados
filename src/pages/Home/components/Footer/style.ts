@@ -47,7 +47,7 @@ export const DataContainer = styled.div`
     font-family: var(--secondary-font);
   }
 `;
-export const PhoneContent = styled.div`
+export const DataInfoContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
