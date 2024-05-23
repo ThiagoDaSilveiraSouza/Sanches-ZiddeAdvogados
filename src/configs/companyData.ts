@@ -12,7 +12,7 @@ export const companyData: ICompanyData = {
   neighborhood: "Barra da Tijuca",
   state: "Rio de Janeiro – RJ",
   cep: "22640-100",
-  complement: "Shopping Downtown",
+  complement: "Shopping Downtown",
   email: "contato@sezadvogados.com.br ",
   logo: {
     first: firstLogo,

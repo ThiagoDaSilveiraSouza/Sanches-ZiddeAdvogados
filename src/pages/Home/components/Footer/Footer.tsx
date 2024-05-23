@@ -87,14 +87,18 @@ export const Footer = ({}) => {
                 <FaPhone style={{ transform: "scaleX(-1)" }} />
                 {companyData.phone}
               </p>
-              <p>
-                <MdEmail />
-                {companyData.email}
-              </p>
+              <a href={companyData.email} style={{ textDecoration: "none" }}>
+                <p>
+                  <MdEmail />
+                  {companyData.email}
+                </p>
+              </a>
               <p>{companyData.address}</p>
               <p>
                 {companyData.neighborhood} - {companyData.state}
               </p>
+              <p>CEP: {companyData.cep}</p>
+              <p>{companyData.complement}</p>
             </DataInfoContent>
 
             <SocialMedia havePhone={false} />
