@@ -17,7 +17,7 @@ import { Button, SocialMedia } from "../../../../components";
 import { SendEmailModal } from "./components";
 
 // img
-import footerBg from "/bg-rodapé.png";
+import footerBg from "/bg-rodape.png";
 
 // style
 import {
@@ -27,7 +27,7 @@ import {
   FormContainer,
   Label,
   MainContainer,
-  PhoneContent,
+  DataInfoContent,
 } from "./style";
 
 // utils
@@ -82,16 +82,25 @@ export const Footer = ({}) => {
         <MainContainer>
           <DataContainer>
             <h3>Fale Conosco</h3>
-            <PhoneContent>
+            <DataInfoContent>
               <p>
                 <FaPhone style={{ transform: "scaleX(-1)" }} />
                 {companyData.phone}
               </p>
+              <a href={companyData.email} style={{ textDecoration: "none" }}>
+                <p>
+                  <MdEmail />
+                  {companyData.email}
+                </p>
+              </a>
+              <p>{companyData.address}</p>
               <p>
-                <MdEmail />
-                {companyData.email}
+                {companyData.neighborhood} - {companyData.state}
               </p>
-            </PhoneContent>
+              <p>CEP: {companyData.cep}</p>
+              <p>{companyData.complement}</p>
+            </DataInfoContent>
+
             <SocialMedia havePhone={false} />
           </DataContainer>
           <FormContainer onSubmit={formHandlerSubmit}>

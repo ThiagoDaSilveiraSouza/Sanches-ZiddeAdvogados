@@ -6,10 +6,8 @@ export const TableRowEditColumn = styled.td`
   align-items: center;
   gap: 5px;
 
-  
   cursor: pointer;
 
-  
   svg{
     :hover{
       transform: scale(1.2);

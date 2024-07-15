@@ -19,6 +19,7 @@ export const ModalContentStyle = styled.div<ICard>`
       align-items: center;
     }
     img {
+      width: 57px;
       display: ${({ icon }) => !icon && "none"};
     }
     h3 {

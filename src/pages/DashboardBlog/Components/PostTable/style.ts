@@ -10,19 +10,25 @@ export const TableContainer = styled.div`
 `;
 export const Table = styled.table`
   min-width: 100%;
+  max-height: 100%;
   tr{
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+    grid-gap: 2px;
+
     td{
       padding: 5px;
       height: 37px;
       box-sizing: border-box;
     }
+
   }
 `;
 export const TableHead = styled.thead`
   tr{
-      background: black;
-      color: white;
-      th{
+    color: white;
+    th{
+        background: black;
         text-align: center;
         font-size: 20px;
       }
@@ -31,10 +37,6 @@ export const TableHead = styled.thead`
 export const TableBody = styled.tbody`
 
   tr{
-    cursor: pointer;
-    th{
-      text-align: start;
-    }
     :nth-child(even){
       background: #E8E8E8;
     }

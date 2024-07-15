@@ -14,13 +14,7 @@ import { IFilters, useAllFilters } from "./utils";
 import { NewPostModal, PostTable } from "./Components";
 
 // DashboardBlog style
-import {
-  DashboardBlogContainer,
-  FiltersContainer,
-  NewPostButton,
-  Label,
-  Input,
-} from "./style";
+import { FiltersContainer, NewPostButton, Label, Input } from "./style";
 
 export const DashboardBlog = () => {
   const { postList, reloadPostListFromApi } = UseData();
@@ -33,7 +27,7 @@ export const DashboardBlog = () => {
   }, []);
 
   return (
-    <DashboardBlogContainer>
+    <>
       <h1>Posts</h1>
       <FiltersContainer>
         <Label>
@@ -90,6 +84,6 @@ export const DashboardBlog = () => {
       {/* Modals */}
       <NewPostModal useModal={[NewPostModalIsOpen, setNewPostModalIsOpen]} />
       <PostTable postList={postListFiltered} />
-    </DashboardBlogContainer>
+    </>
   );
 };

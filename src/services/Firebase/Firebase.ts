@@ -8,9 +8,18 @@ import {
   browserSessionPersistence,
   onAuthStateChanged,
 } from "firebase/auth";
-import { addDoc, collection, DocumentData, getDocs, doc, deleteDoc, getFirestore, QuerySnapshot, updateDoc } from "firebase/firestore"
+import {
+  addDoc,
+  collection,
+  getDocs,
+  doc,
+  deleteDoc,
+  getFirestore,
+  QuerySnapshot,
+  updateDoc,
+} from "firebase/firestore";
 
-import { ICompanyData } from "src/interfaces";
+import { ICompanyData, ITextHomeData } from "src/interfaces";
 import { IPost } from "../../interfaces/IPost";
 
 const firebaseConfig = {
@@ -54,92 +63,122 @@ export const isLoggedOnFirebase = (setIsLogged: Function) => {
 };
 
 export const useFirebase = () => {
-  const dataBase = getFirestore(app)
-  const postCollectionRef = collection(dataBase, "post")
-  const companyDataCollectionRef = collection(dataBase, "companyData")
+  const dataBase = getFirestore(app);
+  const postCollectionRef = collection(dataBase, "post");
+  const companyDataCollectionRef = collection(dataBase, "companyData");
+  const homePageDataCollectionRef = collection(dataBase, "homePageData");
 
   const updateResponseToList = <T>(dataResponse: QuerySnapshot<T>) => {
     return dataResponse?.docs?.map((doc) => {
-      const updatedResponseToList = { ...doc.data(), id: doc.id }
-      return updatedResponseToList
-    })
-  }
+      const updatedResponseToList = { ...doc.data(), id: doc.id };
+      return updatedResponseToList;
+    });
+  };
 
   const getCompanyData = async () => {
     try {
-      const companyData = await getDocs(companyDataCollectionRef)
-      const updatedCompanyData = updateResponseToList(companyData)[0] as ICompanyData
+      const companyData = await getDocs(companyDataCollectionRef);
+      const updatedCompanyData = updateResponseToList(
+        companyData
+      )[0] as ICompanyData;
 
-      return updatedCompanyData
+      return updatedCompanyData;
     } catch (err) {
-      console.warn("getCompanyData err", err)
+      console.warn("getCompanyData err", err);
     }
-  }
+  };
 
   const updateSingleCompanyData = async (newCompanyData: ICompanyData) => {
     try {
-      const updateCompanyResponse = await updateDoc(doc(dataBase, "companyData", "81ZbKUcXXwupicaUWVfY"), { ...newCompanyData })
-      console.log("updateCompanyResponse", updateCompanyResponse)
+      const updateCompanyResponse = await updateDoc(
+        doc(dataBase, "companyData", "81ZbKUcXXwupicaUWVfY"),
+        { ...newCompanyData }
+      );
+      console.log("updateCompanyResponse", updateCompanyResponse);
 
-      return true
+      return true;
     } catch (err) {
-      console.log(err)
-      return false
+      console.log(err);
+      return false;
     }
-  }
+  };
 
   const getPosts = async () => {
     try {
-      const posts = await getDocs(postCollectionRef)
+      const posts = await getDocs(postCollectionRef);
       const updatedPostList = updateResponseToList(posts).sort((a, b) => {
-        const aSeconds = a.date.seconds
-        const bSeconds = b.date.seconds
+        const aSeconds = a.date.seconds;
+        const bSeconds = b.date.seconds;
 
-        return bSeconds - aSeconds
-      })
-      return updatedPostList
+        return bSeconds - aSeconds;
+      });
+      return updatedPostList;
     } catch (err) {
-      console.log("getDocs error:", err)
+      console.log("getDocs error:", err);
     }
-  }
-
+  };
 
   const createPost = async (post: IPost) => {
     try {
-      const createPostResponse = await addDoc(postCollectionRef, post)
-      console.log("createPostResponse", createPostResponse)
+      const createPostResponse = await addDoc(postCollectionRef, post);
+      console.log("createPostResponse", createPostResponse);
 
-      return createPostResponse
+      return createPostResponse;
     } catch (err) {
-      console.warn("createPost error", err)
+      console.warn("createPost error", err);
     }
-  }
+  };
 
   const updatePostById = async (id: string, newPost: IPost) => {
     try {
-      const updatePostResponse = await updateDoc(doc(dataBase, "post", id), { ...newPost })
-      console.log("updatePostResponse", updatePostResponse)
+      const updatePostResponse = await updateDoc(doc(dataBase, "post", id), {
+        ...newPost,
+      });
+      console.log("updatePostResponse", updatePostResponse);
 
-      return true
+      return true;
     } catch (err) {
-      console.log(err)
-      return false
+      console.log(err);
+      return false;
     }
-  }
+  };
 
   const deletePostById = async (id: string) => {
     try {
       const deletePostByIdResponse = await deleteDoc(doc(dataBase, "post", id));
-      console.log("deletePostByIdResponse", deletePostByIdResponse)
+      console.log("deletePostByIdResponse", deletePostByIdResponse);
 
-      return true
-
+      return true;
     } catch (err) {
-      console.log(err)
-      return false
+      console.log(err);
+      return false;
     }
-  }
+  };
 
+  const getHomePageData = async () => {
+    try {
+      const homePageData = await getDocs(homePageDataCollectionRef);
+      const updatedHomePageData = updateResponseToList(homePageData)[0];
+
+      return updatedHomePageData;
+    } catch (err) {
+      console.warn("getHomePageData err", err);
+    }
+  };
+
+  const updateHomePageData = async (newCompanyData: ITextHomeData) => {
+    try {
+      const updatedHomePageData = await updateDoc(
+        doc(dataBase, "homePageData", "k2lvZvXSMP2XwYUNf8z0"),
+        { ...newCompanyData }
+      );
+
+      return true;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  };
 
   return {
     getCompanyData,
@@ -147,6 +186,8 @@ export const useFirebase = () => {
     getPosts,
     createPost,
     updatePostById,
-    deletePostById
-  }
-}
+    deletePostById,
+    getHomePageData,
+    updateHomePageData,
+  };
+};

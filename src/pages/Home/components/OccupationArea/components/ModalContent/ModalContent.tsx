@@ -16,7 +16,7 @@ export const ModalContent: FC<IModalContent> = ({ selectedCard }) => {
   const whatsappLinkByOccupation = (occupation: string) =>
     createWhatsappLink(
       `Olá, acabei de acessar o site e estou interessado em seus serviços de ${occupation}, pode me ajudar?`,
-      companyData.number
+      companyData.phone
     );
 
   return (

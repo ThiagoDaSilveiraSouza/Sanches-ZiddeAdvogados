@@ -21,10 +21,6 @@ export const UseData = () => {
     const reloadCompanyDataFromApiResponse = await getCompanyData();
 
     if (reloadCompanyDataFromApiResponse) {
-      console.log(
-        "reloadCompanyDataFromApiResponse",
-        reloadCompanyDataFromApiResponse
-      );
 
       setData((data) => {
         const newData = { ...data };
@@ -40,7 +36,6 @@ export const UseData = () => {
     );
 
     if (updateCompanyDataResponse) {
-      console.log("updateCompanyDataResponse", updateCompanyDataResponse);
       await reloadCompanyDataFromApi();
       return true;
     }
@@ -51,11 +46,6 @@ export const UseData = () => {
     const reloadPostListFromApiResponse = await getPosts() as IPost[];
 
     if (reloadPostListFromApiResponse) {
-      console.log(
-        "reloadPostListFromApiResponse",
-        reloadPostListFromApiResponse
-      );
-
       setData((data) => {
         const newData = { ...data };
         newData.postsList = reloadPostListFromApiResponse;
@@ -67,7 +57,6 @@ export const UseData = () => {
   const addNewPost = async (post: IPost) => {
     const createPostResponse = await createPost(post);
     if (createPostResponse) {
-      console.log("createPostResponse", createPostResponse);
       await reloadPostListFromApi();
       return true;
     }
@@ -78,7 +67,6 @@ export const UseData = () => {
     const updatePostResponse = await updatePostById(id, newPost);
 
     if (updatePostResponse) {
-      console.log("updateCompanyDataResponse", updatePostResponse);
       await reloadPostListFromApi();
       return true;
     }

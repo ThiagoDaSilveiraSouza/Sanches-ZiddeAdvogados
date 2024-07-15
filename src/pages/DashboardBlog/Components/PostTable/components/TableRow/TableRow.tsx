@@ -28,6 +28,7 @@ export const TableRow = ({
   setTargetPostToUpdate,
 }: ITableRow) => {
   const { getDayByTimestamp } = formatDate;
+  // console.log(post);
 
   return (
     <tr>

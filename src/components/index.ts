@@ -3,3 +3,4 @@ export * from "./Modal";
 export * from "./Button";
 export * from "./HamburgerButton";
 export * from "./SocialMedia";
+export * from "./FormContainer"

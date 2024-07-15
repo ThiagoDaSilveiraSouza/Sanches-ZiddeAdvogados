@@ -7,9 +7,12 @@ import { ICompanyData } from "src/interfaces/ICompanyData";
 
 export const companyData: ICompanyData = {
   name: "Sanches & Zidde advogados",
-  phone: "(21) 98770-4580",
-  address: "",
-  number: "",
+  phone: "+552198770-4580",
+  address: "Av. das Américas - n° 500, bloco 6, portaria d, sala 304",
+  neighborhood: "Barra da Tijuca",
+  state: "Rio de Janeiro – RJ",
+  cep: "22640-100",
+  complement: "Shopping Downtown",
   email: "contato@sezadvogados.com.br ",
   logo: {
     first: firstLogo,

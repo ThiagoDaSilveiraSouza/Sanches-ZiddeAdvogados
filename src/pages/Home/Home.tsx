@@ -1,11 +1,14 @@
 // components
-import { Dispatch, SetStateAction, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 // interfaces
-import { ICompanyData } from "../../interfaces";
+import { ICompanyData, ITextHomeData } from "../../interfaces";
 
 // components
 import { Header } from "../../components";
+
+// services
+import { useFirebase } from "../../services";
 
 // Home components
 import {
@@ -17,17 +20,27 @@ import {
   Footer,
 } from "./components";
 
-type ISetCompanyData = Dispatch<SetStateAction<ICompanyData | undefined>>;
-
 export const Home = () => {
-  const [companyData, setCompanyData] = useState<ICompanyData>();
+  const { getHomePageData } = useFirebase();
+  const [homePageTextData, setHomePageTextData] = useState<ITextHomeData>();
+
+  const updateHomePagetextData = async () => {
+    const homePageTextDataFromApi = await getHomePageData();
+    if (homePageTextDataFromApi) {
+      setHomePageTextData(homePageTextDataFromApi as ITextHomeData);
+    }
+  };
+
+  useEffect(() => {
+    updateHomePagetextData();
+  }, []);
 
   return (
     <div>
       <Header />
-      <MainBanner />
-      <WhoWheAre />
-      <OurMission />
+      <MainBanner homePageTextData={homePageTextData as ITextHomeData} />
+      <WhoWheAre homePageTextData={homePageTextData as ITextHomeData} />
+      <OurMission homePageTextData={homePageTextData as ITextHomeData} />
       <OccupationArea />
       <Credentials />
       <Footer />

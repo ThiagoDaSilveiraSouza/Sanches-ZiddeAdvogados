@@ -1,8 +1,17 @@
-# Sanches-ZiddeAdvogados
+<style>
+  mainTitle {color: gold}
+  dashboarTitle {color: orange}
+  valorTitle {color: yellow}
+  page { color: #c5f015 }
+  component { color: #a878fb }
+  dataBase {color: hsl(206,100%,52%)}
+</style>
+
+# <mainTitle>**Sanches-ZiddeAdvogados**</mainTitle>
 
 ## [Link do layout](https://xd.adobe.com/view/ecc34af2-a31b-4696-8e0a-201324966c33-b990/specs/)
 
-# Lista de tarefas do Dashboard
+# <dashboarTitle>**Lista de tarefas do Dashboard**</dashboarTitle>
 
 ## Páginas para serem desenvolvidas com programação:
 
@@ -12,17 +21,40 @@
 
 ### Dashboard:
 
-- Página de criação de postagem do blog;
-- Página de alteração de postagem do blog;
-- Página de configuração do dashboard (adicionar, alterar e remover usuários)
-- Página de alteração de textos do site;
+## Novas Páginas e componentes:
 
-## Criação e comunicação com o banco de dados:
+- <page>**Página do blog:**</page> página onde usuários terão acesso as postagens criadas no próprio site;
+- <page>**Página de textos do site:**</page> de listagem e edição de textos do site;
+- <page>**Página de postagem:**</page> de listagem e exclusão de postagens;
+  - <component>**Componente (pop-up):**</component> Modal de alteração e criação de postagem do blog ;
+- <page>**Página de configuração de usuários:**</page> de listagem e exclusão de usuários;
+  - <component>**Componente (pop-up):**</component> Modal de criação e alteração de usuários;
+- <page>**Página de configuração da empresa:**</page> de listagem e alteração dos dados da empresa;
+  - <component>**Componente (pop-up):**</component> Modal de criação e alteração de advogados ;
 
-- Criar estrutura de dados de postagens do blog;
-  - Vincular banco de dados a página de criação postagem do blog;
-  - Vincular banco de dados a página de alteração postagem do blog;
-  - Vincular banco de dados a página de exclusão postagem do blog;
-- Vincular banco de dados a página de configuração do dashboard (Estrutura de banco de dados de usuários já existe e não precisa ser criada);
-- Criar estrutura de dados para os textos do site;
-  - Vincular banco de dados a página de alteração de texto do site;
+## Criação e comunicação com o banco de dados (Salvar as informações alteradas ou criadas):
+
+- Criar e vincular estrutura de dados com a página de <page>textos do site</page>;
+- Criar e vincular estrutura de dados com a página de <page>postagens</page>;
+- Criar e vincular estrutura de dados com a página de <page>configuração de usuários</page>;
+- Criar e vincular estrutura de dados com a página de <page>configuração da empresa</page>;
+
+# <valorTitle>**valores:**</valorTitle>
+
+## <page>**Páginas:**</page>
+
+#### Quantidade de páginas: 5
+
+#### Valores por página: R$800,00
+
+### **Total**: R$3.200,00
+
+## <dataBase>**Banco de dados:**</dataBase>
+
+#### Quantidade de comunicações: 4
+
+#### Valores por página: R$250,00
+
+### **Total**: R$1.000,00
+
+## **Valor total do desenvolvimento: R$3.400,00**
