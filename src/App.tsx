@@ -5,6 +5,7 @@ import { MenuProvider, LoginProvider, DataProvider } from "./context";
 import { MainRoutes } from "./routes";
 
 function App() {
+  console.log("add tags")
   return (
     <div className="App">
       <LoginProvider>
