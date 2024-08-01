@@ -20,7 +20,7 @@ export const companyData: ICompanyData = {
   },
   socialMedia: {
     facebook: "",
-    instagram: "https://www.instagram.com/rachelsanches/",
+    instagram: "https://www.instagram.com/sanchesezidde/",
     whatsapp: "",
   },
   lawyers: [
