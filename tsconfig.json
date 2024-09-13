@@ -15,6 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "typeRoots": ["node_modules/@types"],
     "baseUrl": "." // Deve ser especificado se "caminhos" for .
   },
   "include": ["src"],
